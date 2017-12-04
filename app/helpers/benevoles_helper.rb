@@ -1,0 +1,2 @@
+module BenevolesHelper
+end
