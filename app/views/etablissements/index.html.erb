@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Etablissements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Zip</th>
+      <th>City</th>
+      <th>Type</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @etablissements.each do |etablissement| %>
+      <tr>
+        <td><%= etablissement.name %></td>
+        <td><%= etablissement.address %></td>
+        <td><%= etablissement.zip %></td>
+        <td><%= etablissement.city %></td>
+        <td><%= etablissement.type %></td>
+        <td><%= etablissement.email %></td>
+        <td><%= etablissement.phone %></td>
+        <td><%= link_to 'Show', etablissement %></td>
+        <td><%= link_to 'Edit', edit_etablissement_path(etablissement) %></td>
+        <td><%= link_to 'Destroy', etablissement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+        <p>commentaire : voir juste son profil lors de signup/signin puis en dessous le fil de conversation des posts des benevoles et la possibilité d'y repondre</p>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Etablissement', new_etablissement_path %>

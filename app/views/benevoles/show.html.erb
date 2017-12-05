@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @benevole.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @benevole.lastname %>
+</p>
+
+<p>
+  <strong>Birthday:</strong>
+  <%= @benevole.birthday %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @benevole.address %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @benevole.zip %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @benevole.city %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @benevole.gender %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @benevole.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @benevole.phone %>
+</p>
+
+<%= link_to 'Edit', edit_benevole_path(@benevole) %> |
+<%= link_to 'Back', benevoles_path %>

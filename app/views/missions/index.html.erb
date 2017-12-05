@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Missions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Body</th>
+      <th>Place</th>
+      <th>Appointment</th>
+      <th>Benevole_id</th>
+      <th>Etablissement_id</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @missions.each do |mission| %>
+      <tr>
+        <td><%= mission.title %></td>
+        <td><%= mission.body %></td>
+        <td><%= mission.place %></td>
+        <td><%= mission.appointment %></td>
+        <td><%= mission.benevole_id %></td>
+        <td><%= mission.etablissement_id %></td>
+        <td><%= link_to 'Show', mission %></td>
+        <td><%= link_to 'Edit', edit_mission_path(mission) %></td>
+        <td><%= link_to 'Destroy', mission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+        <p>commentaire : transformer les id en cacher car forcement un benevole a crée la mission et sur la page d'un etablissement. question de la pertinence d'afficher l'index des missions.  </p>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mission', new_mission_path %>

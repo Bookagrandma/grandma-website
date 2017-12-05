@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Benevoles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Birthday</th>
+      <th>Address</th>
+      <th>Zip</th>
+      <th>City</th>
+      <th>Gender</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @benevoles.each do |benevole| %>
+      <tr>
+        <td><%= benevole.firstname %></td>
+        <td><%= benevole.lastname %></td>
+        <td><%= benevole.birthday %></td>
+        <td><%= benevole.address %></td>
+        <td><%= benevole.zip %></td>
+        <td><%= benevole.city %></td>
+        <td><%= benevole.gender %></td>
+        <td><%= benevole.email %></td>
+        <td><%= benevole.phone %></td>
+        <td><%= link_to 'Show', benevole %></td>
+        <td><%= link_to 'Edit', edit_benevole_path(benevole) %></td>
+        <td><%= link_to 'Destroy', benevole, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+
+
+    <p>commentaire : ajouter du front pour faire jolie page d'accueil (new, voir juste sa page de profil, utiliser index pour trouver des users comme soi ou qu'on recherche</p>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Benevole', new_benevole_path %>
