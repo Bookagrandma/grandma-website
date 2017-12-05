@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :etablissements
   resources :benevoles
   resources :comments
+  # devise_for :benevoles
+  # devise_for :etablissements
 
 resources :etablissements do
 	resources :missions
