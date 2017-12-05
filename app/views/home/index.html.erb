@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,28 @@
 	    </ul>
 	  </div>
 </nav>
+	<ul>
+	 <% if benevole_signed_in? %>
+	 <li>
+	   <%= link_to "Sign out", destroy_benevole_session_path, method: :delete %>
+	 </li>
 
+	   <%= link_to "Edit Account", edit_benevole_registration_path %>
+	 </li>
+
+	 <% else %>
+
+	 <li>
+	   <%= link_to "sign in", new_benevole_session_path %>
+	 </li>
+	 <li>
+	   <%= link_to "sign up", new_benevole_registration_path %>
+	 </li>
+
+	 <% end %>
+
+	</ul>
 </body>
 </html>
+
 

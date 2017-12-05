@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  devise_for :etablissements
+  devise_for :benevoles
   resources :missions
   resources :etablissements
   resources :benevoles
@@ -28,6 +30,8 @@ resources :comments do
 end
 
 root 'home#index'
+
+
 
 end
 
