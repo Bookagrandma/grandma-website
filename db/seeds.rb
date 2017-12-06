@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'csv'
+
+csv = CSV.parse(File.read(Rails.root.join('db', 'bdd_ehpad.csv')), :headers => true)
+csv.each do |row|
+ Etablissement.create(name: row['name'], address: row['address'], zip: row['zip'], city: row['city'], category: row['category'], email: row['email'], phone: row['phone'], password: row['password']).save
+puts row.to_hash
+end
