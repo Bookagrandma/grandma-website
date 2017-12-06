@@ -20,6 +20,7 @@ gem 'carrierwave'
 gem 'gmaps4rails'
 gem 'simple_form'
 gem 'activeadmin'
+gem 'pg'
 
 
 group :development, :test do
@@ -27,7 +28,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'sqlite3'
+
 end
 
 group :development do
@@ -40,10 +41,11 @@ group :development do
   gem 'pry-byebug'
   gem 'faker'
   gem 'letter_opener'
+
 end
 
 group :production do
-  gem 'pg', '0.20.0'
+
   gem 'rails_12factor'
 end
 
