@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+ get "/etablissements", to: "etablissements#index"
 
   devise_for :benevoles, controllers: {
     sessions:           "benevoles/sessions",

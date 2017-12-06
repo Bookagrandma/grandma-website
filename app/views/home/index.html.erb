@@ -25,9 +25,13 @@
 	 <li>
 	   <%= link_to "Sign out", destroy_benevole_session_path, method: :delete %>
 	 </li>
-
+	 <li>
 	   <%= link_to "Edit Account", edit_benevole_registration_path %>
-	 </li>
+	  </li>
+	  <li>
+	   <%= link_to "Voir les établissements déjà partenaires", etablissements_path %>
+	   </li>
+	 
 
 	 <% else %>
 
@@ -49,8 +53,11 @@
 	 <li>
 	   <%= link_to "Sign out", destroy_etablissement_session_path, method: :delete %>
 	 </li>
-
+	 <li>
 	   <%= link_to "Edit Account", edit_etablissement_registration_path %>
+	</li>
+	   <li>
+	   <%= link_to "Voir les établissements déjà partenaires", etablissements_path %>
 	 </li>
 
 	 <% else %>
