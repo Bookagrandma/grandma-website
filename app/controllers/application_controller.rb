@@ -8,4 +8,5 @@ def configure_permitted_parameters
 devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :firstname, :lastname, :address, :zip, :city, :phone, :is_female, :birthday, :name, :type])
 devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :firstname, :lastname, :address, :zip, :city, :phone, :is_female, :birthday, :name, :type])
 end
+
 end
