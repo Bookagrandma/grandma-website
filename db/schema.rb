@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205142213) do
+ActiveRecord::Schema.define(version: 20171206103715) do
 
   create_table "benevoles", force: :cascade do |t|
     t.string "firstname"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20171205142213) do
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "mission_id"
     t.index ["benevole_id"], name: "index_comments_on_benevole_id"
     t.index ["etablissement_id"], name: "index_comments_on_etablissement_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
