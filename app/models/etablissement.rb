@@ -5,7 +5,7 @@ class Etablissement < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable
 
   has_many :missions
-  has_many :comments
+  has_many :comments, as: :commentable
   has_many :benevoles, through: :missions
 
   def self.search(search)
