@@ -10,6 +10,6 @@ require 'csv'
 
 csv = CSV.parse(File.read(Rails.root.join('db', 'bdd_ehpad.csv')), :headers => true)
 csv.each do |row|
- Etablissement.create(name: row['name'], address: row['address'], zip: row['zip'], city: row['city'], category: row['category'], email: row['email'], phone: row['phone'], password: row['password']).save
+ Etablissement.create(name: row['name'], address: row['address'], zip: row['zip'], city: row['city'], dept: row['dept'], category: row['category'], email: row['email'], phone: row['phone'], password: row['password']).save
 puts row.to_hash
 end
