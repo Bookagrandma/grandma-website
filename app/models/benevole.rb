@@ -7,4 +7,11 @@ class Benevole < ApplicationRecord
 	has_many :missions
 	has_many :comments
 	has_many :etablissements, through: :missions
+	
+	has_one :profil, dependent: :destroy
+  	after_create :init_profil
+
+  def init_profil
+    self.create_profil!
+  end
 end

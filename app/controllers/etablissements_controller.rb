@@ -15,7 +15,7 @@ class EtablissementsController < ApplicationController
 
 
   def show
-    Etablissement.find(params[:id])
+    @etablissement = Etablissement.find(params[:id])
   end
 
 
