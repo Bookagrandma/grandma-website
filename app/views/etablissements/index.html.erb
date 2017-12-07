@@ -2,6 +2,16 @@
 
 <h1>Etablissements</h1>
 
+
+ <%= form_tag etablissements_path, :method => 'get'  do %>
+   <%= text_field_tag :search, params[:search], placeholder: "Search Etablissements"%>
+   <%= submit_tag "Search", :name => nil  %>
+ <% end %>
+
+
+<p>commentaire : voir juste son profil lors de signup/signin puis en dessous le fil de conversation des posts des benevoles et la possibilité d'y repondre</p>
+
+
 <table>
   <thead>
     <tr>
@@ -28,7 +38,8 @@
         <td><%= etablissement.phone %></td>
       </tr>
     <% end %>
-        <p>commentaire : voir juste son profil lors de signup/signin puis en dessous le fil de conversation des posts des benevoles et la possibilité d'y repondre</p>
+
+        
   </tbody>
 </table>
 
