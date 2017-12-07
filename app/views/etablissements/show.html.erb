@@ -45,7 +45,7 @@
 <form method="post" enctype="text/plain" action="mailto:<%= @etablissement.email%>?subject=Mise en contact via BookaGrandma&body=Le corps du message&cc=mettrele maildubenevoleconnecté&bcc=bookagrandma@gmail.com">
   <input type="text" id="name" placeholder="mettre coordonnées automatiques benevole" />
   <br>
-  <textarea id="message" placeholder="Message" rows="4"></textarea>
+  <textarea id="message" name="=" placeholder="Message" rows="4"></textarea>
           <br>
       <input value="Envoyez un email" type="submit"></input> 
 </form>

@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :profils
 
   resources :etablissements do
-    get :autocomplete_city_zip_name, :on => :collection
+    get :autocomplete_city_dept_name, :on => :collection
   end
 
 

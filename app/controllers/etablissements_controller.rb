@@ -5,7 +5,7 @@ class EtablissementsController < ApplicationController
   #   @etablissements = Etablissement.search(params[:search], params[:id])
   # end
  
- autocomplete :city, :zip, :name
+ autocomplete :city, :name, :dept
 
   def index
     if params[:search]
