@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
  get "/etablissements", to: "etablissements#index"
 
+
   devise_for :benevoles, controllers: {
     sessions:           "benevoles/sessions",
     passwords:          "benevoles/passwords",
@@ -19,8 +20,12 @@ Rails.application.routes.draw do
 
   resources :missions
   resources :etablissements
-  resources :benevoles
   resources :comments
+
+  resources :benevoles 
+  resources :profils
+ 
+  
 
 
   # resources :etablissements do
