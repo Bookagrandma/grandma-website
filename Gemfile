@@ -12,6 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+### add by us
 gem 'devise'
 gem 'pundit'
 gem 'omniauth'
@@ -20,7 +21,7 @@ gem 'carrierwave'
 gem 'gmaps4rails'
 gem 'simple_form'
 gem 'activeadmin'
-gem 'pg'
+gem 'pg', '~> 0.18'
 
 
 group :development, :test do
@@ -28,7 +29,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'sqlite3'
 
 end
 
@@ -37,6 +37,8 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
 #  gem 'spring'
 #  gem 'spring-watcher-listen', '~> 2.0.0'
+
+###add by us
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-byebug'
@@ -44,6 +46,7 @@ group :development do
   gem 'letter_opener'
 end
 
+###add by us
 group :production do
   gem 'rails_12factor'
 end
