@@ -22,6 +22,8 @@ gem 'gmaps4rails'
 gem 'simple_form'
 gem 'activeadmin'
 gem 'pg'
+gem 'rails-jquery-autocomplete'
+gem 'jquery-ui-rails'
 
 
 group :development, :test do

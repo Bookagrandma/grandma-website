@@ -10,6 +10,7 @@ class Etablissement < ApplicationRecord
 
   def self.search(search)
     # Title is for the above case, the OP incorrectly had 'name'
-    where("city ILIKE ? OR zip ILIKE ?", "%#{search}%", "%#{search}%")
+    where("city ILIKE ? OR zip ILIKE ? OR name ILIKE ? OR dept ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}", "%#{search}")
   end
 end
+
