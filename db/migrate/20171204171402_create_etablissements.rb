@@ -6,6 +6,7 @@ class CreateEtablissements < ActiveRecord::Migration[5.1]
     t.string "address"
     t.string "zip"
     t.string "city"
+    t.string "dept"
     t.string "category"
     t.string "email"
     t.string "phone"
