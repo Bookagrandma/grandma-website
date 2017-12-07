@@ -1,33 +1,51 @@
-<p id="notice"><%= notice %></p>
+<p>
+  <strong>Name</strong>
+  <%= @etablissement.name%>
+</p>
+ 
+ <p>
+  <strong>Address</strong>
+  <%= @etablissement.address%>
+</p>
 
-<h1>Etablissements</h1>
+<p>
+  <strong>ZIP</strong>
+  <%= @etablissement.zip%>
+</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Zip</th>
-      <th>City</th>
-      <th>Category</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<p>
+  <strong>City</strong>
+  <%= @etablissement.city%>
+</p>
 
-  <tbody>
-    <% @etablissements.each do |etablissement| %>
-      <tr>
-        <td><%= etablissement.name %></td>
-        <td><%= etablissement.address %></td>
-        <td><%= etablissement.zip %></td>
-        <td><%= etablissement.city %></td>
-        <td><%= etablissement.category %></td>
-        <td><%= etablissement.email %></td>
-        <td><%= etablissement.phone %></td>
-      </tr>
-    <% end %>
-        <p>commentaire : voir juste son profil lors de signup/signin puis en dessous le fil de conversation des posts des benevoles et la possibilité d'y repondre</p>
-  </tbody>
+<p>
+  <strong>Dept</strong>
+  <%= @etablissement.dept%>
+</p>
+
+<p>
+  <strong>Category</strong>
+  <%= @etablissement.category%>
+</p>
+
+<p>
+  <strong>Phone</strong>
+  <%= @etablissement.phone%>
+</p>
+ 
+
+<%= link_to 'Retour liste etablissemet', etablissements_path %> |
+ <%= link_to 'Supprimer l\'établissement', @etablissement,
+              method: :delete,
+              data: { confirm: 'Etes vous certain?' } %>
 </table>
+
+
+
+<form method="post" enctype="text/plain" action="mailto:<%= @etablissement.email%>?subject=Mise en contact via BookaGrandma&body=Le corps du message&cc=mettrele maildubenevoleconnecté&bcc=bookagrandma@gmail.com">
+  <input type="text" id="name" placeholder="mettre coordonnées automatiques benevole" />
+  <br>
+  <textarea id="message" placeholder="Message" rows="4"></textarea>
+          <br>
+      <input value="Envoyez un email" type="submit"></input> 
+</form>
