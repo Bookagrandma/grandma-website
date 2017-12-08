@@ -18,3 +18,43 @@
 @import "bootstrap";
 
 
+
+// COLORS
+$blue: #5ABBA7;
+$black: #272624;
+$white: #E9ECE6;
+
+// FONTS
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700,900|Open+Sans:300,400,400i,700');
+
+
+h3 {
+  font-family: 'Nunito', 'Helveitca', sans-serif;
+  font-size: 1.4em;
+  font-weight: 700;
+  color: $black;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  font-family: 'Open Sans', 'Helveitca', sans-serif;
+  font-size: .85em;
+  color: $black;
+}
+
+.account-infos {
+  li {
+    list-style: none;
+    float: left;
+    a {
+      margin: 5px;
+    }
+  }
+  h3 {
+    clear: both;
+  }
+  ul {
+    padding-left: 0px;
+  }
+}

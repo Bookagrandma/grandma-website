@@ -4,7 +4,7 @@ class EtablissementsController < ApplicationController
   #   #@etablissements = Etablissement.all
   #   @etablissements = Etablissement.search(params[:search], params[:id])
   # end
- 
+
  autocomplete :city, :name, :dept
 
   def index
