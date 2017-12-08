@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :benevoles
   resources :profils
 
+
   resources :etablissements do
     get :autocomplete_city_dept_name, :on => :collection
   end
