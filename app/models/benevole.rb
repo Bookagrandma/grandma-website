@@ -5,7 +5,7 @@ class Benevole < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
 	has_many :missions
-	has_many :comments
+	has_many :comments, as: :commentable
 	has_many :etablissements, through: :missions
 	
 	has_one :profil, dependent: :destroy

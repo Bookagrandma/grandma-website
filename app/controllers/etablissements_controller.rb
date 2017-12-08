@@ -5,6 +5,8 @@ class EtablissementsController < ApplicationController
   #   @etablissements = Etablissement.search(params[:search], params[:id])
   # end
 
+ autocomplete :city, :name, :dept
+
   def index
     if params[:search]
       @etablissements = Etablissement.search(params[:search]).order("created_at ASC")
