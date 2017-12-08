@@ -5,11 +5,12 @@ class Etablissement < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable
 
   has_many :missions
-  has_many :comments
+  has_many :comments, as: :commentable
   has_many :benevoles, through: :missions
 
   def self.search(search)
     # Title is for the above case, the OP incorrectly had 'name'
-    where("city ILIKE ? OR zip ILIKE ?", "%#{search}%", "%#{search}%")
+    where("city ILIKE ? OR name ILIKE ? OR dept ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}")
   end
 end
+

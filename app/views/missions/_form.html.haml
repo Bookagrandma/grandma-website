@@ -1,0 +1,8 @@
+= simple_form_for(@mission, html: {class: "form-horizontal"}) do |f|
+  = f.input :title, label: "Mission Title"
+  = f.input :body, label: "Mission Description"
+  = f.input :place, label: "Mission Location"
+  = f.input :appointment, label: "Mission Date"
+  %br/
+  =f.button :submit
+  
