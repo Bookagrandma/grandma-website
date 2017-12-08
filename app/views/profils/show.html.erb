@@ -1,4 +1,5 @@
 
+
 <H3>Avatar</H3>
 
 <H3>Informations</H3>
@@ -17,5 +18,19 @@
 <%= current_benevole.phone %>
 
 <H3>Motivation</H3>
+
+<p>
+  <%= @profil.id %>
+</p>
+
+<% if (@profil.motivation == nil)  %>
+  <%= form_tag profil_path(@profil), method: :put do %>
+    <%= label_tag 'motivation', 'ta motivation' %>
+    <%= text_area_tag :motivation, '', :class => "form-control" %>
+    <%= submit_tag "entrer", :class => "btn btn-default" %>
+  <% end %>
+<% else %>
+  <%= @profil.motivation %>
+<% end %>
 
 <H3>Missions</H3>

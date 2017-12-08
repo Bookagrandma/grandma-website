@@ -11,15 +11,21 @@ class ProfilsController < ApplicationController
 	end
 
 	def show
+		@profil = Profil.find(params[:id])
 	end
 
-	def edit
+	def update
+		@profil = Profil.find(params[:id])
+		@profil.update(motivation_params)
+		render 'show'
 	end
 
-	def detroy	
+	def detroy
 	end
 
+private
 
+	def motivation_params
+		params.permit(:motivation)
+	end
 end
-
-

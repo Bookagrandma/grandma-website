@@ -22,10 +22,10 @@ Rails.application.routes.draw do
   resources :etablissements
   resources :comments
 
-  resources :benevoles 
+  resources :benevoles
   resources :profils
- 
-  
+
+
 
 
   # resources :etablissements do
