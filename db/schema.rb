@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20171207180359) do
     t.string "address"
     t.string "zip"
     t.string "city"
-    t.string "dept"
     t.string "category"
     t.string "email"
     t.string "phone"
