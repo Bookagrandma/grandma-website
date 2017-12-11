@@ -18,12 +18,17 @@ Rails.application.routes.draw do
     confirmations:      "etablissements/confirmations",
   }
 
-  resources :missions
-  resources :etablissements
-  resources :comments
+  resources :missions do 
+    resources :comments, controller: 'missions/comments'
+  end
 
-  resources :benevoles
-  resources :profils
+  resources :benevoles, except: [:index] do
+    resources :profils, controller: 'benevoles/profils'
+  end
+
+  resources :etablissements do
+  resources :etprofils, controller: 'etablissements/etprofils'
+  end
 
 
   resources :etablissements do

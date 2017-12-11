@@ -10,11 +10,11 @@ class EtprofilsController < ApplicationController
 	end
 
 	def show
-		@etprofil = etprofil.find(params[:id])
+		@etprofil = Etprofil.find(params[:id])
 	end
 
 	def update
-		@etprofil = etprofil.find(params[:id])
+		@etprofil = Etprofil.find(params[:id])
 		@etprofil.update(motivation_params)
 		render 'show'
 	end
