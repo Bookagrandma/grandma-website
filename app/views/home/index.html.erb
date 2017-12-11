@@ -21,9 +21,10 @@
     </div>
     <div class="account-infos">
       <ul>
-        <li><h3>Vous êtes connecté en tant que bénévole</h3></li>
+        <li>Bénévoles : </li>
         <% if benevole_signed_in? %>
-        <li><h6>Bienvenue <strong><%= current_benevole.email %></strong></%></h6></li>
+        <li><h3>Vous êtes connecté en tant que bénévole</h3></li>
+        <li><h6>Bienvenue <strong><%= current_benevole.firstname %></strong></%></h6></li>
         <li><%= link_to "Sign out", destroy_benevole_session_path, method: :delete %>|</li>
         <li><%= link_to "Edit Account", edit_benevole_registration_path %>|</li>
         <li><%= link_to "Voir les établissements déjà partenaires", etablissements_path %>|</li>
@@ -34,22 +35,22 @@
         <% end %>
       </ul>
     </div>
+    <div class="account-infos">
+      <ul>
+        <li>Établissements de santé : </li>
+        <% if etablissement_signed_in? %>
+        <li><h3>Vous êtes connecté en tant qu'établissement partenaire</h3></li>
+        <h6>Bienvenue <strong><%= current_etablissement.name %></strong>|</h6>
+        <li><%= link_to "Sign out", destroy_etablissement_session_path, method: :delete %>|</li>
+        <li><%= link_to "Edit Account", edit_etablissement_registration_path %>|</li>
+        <li><%= link_to "Voir les établissements déjà partenaires", etablissements_path %></li>
+        <% else %>
+        <li><%= link_to "sign in", new_etablissement_session_path %>|</li>
+        <li><%= link_to "sign up", new_etablissement_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
   </nav>
-
-  <div class="account-infos" style="display: none;">
-    <h3>Établissement</h3>
-    <ul>
-      <% if etablissement_signed_in? %>
-      <h6>Bienvenue <strong><%= current_etablissement.email %></strong>|</h6>
-      <li><%= link_to "Sign out", destroy_etablissement_session_path, method: :delete %>|</li>
-      <li><%= link_to "Edit Account", edit_etablissement_registration_path %>|</li>
-      <li><%= link_to "Voir les établissements déjà partenaires", etablissements_path %></li>
-      <% else %>
-      <li><%= link_to "sign in", new_etablissement_session_path %>|</li>
-      <li><%= link_to "sign up", new_etablissement_registration_path %></li>
-      <% end %>
-    </ul>
-  </div>
 
   <h1 align="center">Les établissements</h1>
   <iframe width="1200" height="800" src="https://app.powerbi.com/view?r=eyJrIjoiNWVkZjBjODItNjY4NC00ZDk1LWFiNGMtNzY0N2Y1MGI4MzM4IiwidCI6ImVhODQ3YjMxLWRjNzMtNGU2NC1iOGU5LTU0Y2IyMzc2ODhmMyIsImMiOjh9" frameborder="0" allowFullScreen="true"></iframe>
