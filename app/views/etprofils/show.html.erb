@@ -1,0 +1,43 @@
+<H3>Avatar</H3>
+
+<H3>Informations</H3>
+<%= current_etablissement.firstname %>
+<%= current_etablissement.lastname %>
+<%= current_etablissement.birthday %>
+<%= current_etablissement.gender %>
+
+<H3>Adresse</H3>
+<%= current_etablissement.address %>
+<%= current_etablissement.zip %>
+<%= current_etablissement.city %>
+
+<H3>Contact</H3>
+<%= current_etablissement.email %>
+<%= current_etablissement.phone %>
+
+<H3>Description</H3>
+
+<p>
+  <%= @etprofil.id %>
+</p>
+
+<% if (@etprofil.description == nil)  %>
+  <%= form_tag etprofil_path(@etprofil), method: :put do %>
+    <%= label_tag 'description', "description de l'établissement et de ses besoins" %>
+    <%= text_area_tag :description, '', :class => "form-control" %>
+    <%= submit_tag "entrer", :class => "btn btn-default" %>
+  <% end %>
+<% else %>
+  <%= @etprofil.description %>
+<% end %>
+
+<H3>Missions</H3>
+
+t.string "name"
+    t.string "address"
+    t.string "zip"
+    t.string "city"
+    t.string "dept"
+    t.string "category"
+    t.string "email"
+    t.string "phone"
