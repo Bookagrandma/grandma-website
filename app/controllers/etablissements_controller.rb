@@ -20,6 +20,9 @@ class EtablissementsController < ApplicationController
     @etablissement = Etablissement.find(params[:id])
   end
 
+  def etprofil
+    @etprofil = Etprofil.current_etablissement.find(params[:id])
+  end
 
   # private
   #     # # Use callbacks to share common setup or constraints between actions.

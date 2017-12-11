@@ -8,6 +8,13 @@ class Etablissement < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :benevoles, through: :missions
 
+  has_one :etprofil, dependent: :destroy
+    after_create :init_etprofil
+
+  def init_etprofil
+    self.create_etprofil!
+  end
+
   def self.search(search)
     # Title is for the above case, the OP incorrectly had 'name'
     where("city ILIKE ? OR name ILIKE ? OR dept ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}")
