@@ -18,10 +18,11 @@ class EtablissementsController < ApplicationController
 
   def show
     @etablissement = Etablissement.find(params[:id])
+    @etprofil = @etablissement.etprofil
   end
 
-  def etprofil
-    @etprofil = Etprofil.current_etablissement.find(params[:id])
+  def etprofils
+    @etprofils = Etprofil.all
   end
 
   # private

@@ -19,10 +19,10 @@ Rails.application.routes.draw do
   }
 
   resources :missions do 
-    resources :comments, controller: 'missions/comments'
+    resources :comments, except: [:index], controller: 'missions/comments'
   end
 
-  resources :benevoles, except: [:index] do
+  resources :benevoles do
     resources :profils, controller: 'benevoles/profils'
   end
 

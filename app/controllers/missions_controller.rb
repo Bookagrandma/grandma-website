@@ -11,6 +11,8 @@ class MissionsController < ApplicationController
   # GET /missions/1
   # GET /missions/1.json
   def show
+     @mission = Mission.find(params[:id])
+    @comments = @mission.comments
   end
 
   # GET /missions/new
