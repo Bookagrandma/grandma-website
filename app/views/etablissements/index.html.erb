@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+
 <h1>Etablissements</h1>
 
 
@@ -8,9 +9,7 @@
    <%= submit_tag "Search", :name => nil  %>
  <% end %>
 
-
-<p>commentaire : voir juste son profil lors de signup/signin puis en dessous le fil de conversation des posts des benevoles et la possibilité d'y repondre</p>
-
+<br>
 
 <table>
   <thead>
@@ -38,7 +37,8 @@
         <td><%= etablissement.category %></td>
         <td><%= etablissement.email %></td>
         <td><%= etablissement.phone %></td>
-        <td><%= link_to 'Voir l\'établissement', etablissement_etprofil_path(etprofil) %></td>
+        <td><%= link_to 'Voir l\'établissement', etablissement_path(etablissement) %></td>
+
       </tr>
     <% end %>
 
