@@ -19,7 +19,7 @@
       <li><h3>Vous êtes connecté en tant que bénévole</h3></li>
       <li><h6>Bienvenue <strong><%= current_benevole.firstname %></strong></%></h6></li>
       <li><%= link_to "Sign out", destroy_benevole_session_path, method: :delete %>|</li>
-      <li><%= link_to "Edit Account", edit_benevole_registration_path %>|</li>
+      <!-- <li><%= link_to "Edit Account", edit_benevole_registration_path %>|</li> -->
       <li><%= link_to "Voir les établissements déjà partenaires", etablissements_path %>|</li>
       <li><%= link_to "Votre profil", benevole_path(id: current_benevole.id) %></li>
       <% else %>

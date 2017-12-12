@@ -8,11 +8,6 @@
   </div>
 <% end %>
 
-<%= form_for [@benevole], :html => {:multipart => true} do |f| %>
-  <p><%= f.file_field :avatar %></p>
-  <p><%= f.submit %></p>
-<% end %>
-
 <H3>Informations</H3>
 <%= @benevole.firstname %>
 <%= @benevole.lastname %>
@@ -31,12 +26,8 @@
 <H3>Motivation</H3>
 
 <% if (@benevole.motivation == nil)  %>
-  <%= form_tag benevole_path(@benevole), method: :put do %>
-    <%= label_tag 'motivation', 'ta motivation' %>
-    <%= text_area_tag :motivation, '', :class => "form-control" %>
-    <%= submit_tag "entrer", :class => "btn btn-default" %>
-  <% end %>
-<% else %>
+  <%= puts "------N'oubliez pas de remplir votre motivation-----" %>
+  <% else %>
   <%= @benevole.motivation %>
 <% end %>
 
@@ -44,4 +35,7 @@
 <li><%= link_to "Edit Account", edit_benevole_registration_path %>|</li>
 <% end %>
 
-<H3>Missions</H3>
+ <H3>Missions</H3> 
+
+
+
