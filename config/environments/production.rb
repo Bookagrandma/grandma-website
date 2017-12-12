@@ -92,7 +92,7 @@ end
   end
 
 
-config.action_mailer.default_url_options = { host: 'bookagrandma.herokuapp.com', protocol: 'http' }
+config.action_mailer.default_url_options = { host: 'bookagrandma.herokuapp.com', protocol: 'https' }
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false

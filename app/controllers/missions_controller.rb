@@ -28,8 +28,14 @@ class MissionsController < ApplicationController
   def create
     @mission = Mission.new(mission_params)
 
+
+
     respond_to do |format|
       if @mission.save
+          MissionMailer.new_mission(Mission.last).deliver_now
+
+
+
         format.html { redirect_to @mission, notice: 'Mission was successfully created.' }
         format.json { render :show, status: :created, location: @mission }
       else
