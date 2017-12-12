@@ -46,7 +46,8 @@
         <li><%#= link_to "Voir les établissements déjà partenaires", etablissements_path %></li>
         <% else %>
         <li><%= link_to "sign in", new_etablissement_session_path %>|</li>
-        <li><%= link_to "sign up", new_etablissement_registration_path %></li>
+        <li><%#= link_to "sign up", new_etablissement_registration_path %></li>
+        <li><a href="mailto:bookagrandma@gmail.com">Je suis un ehpad sans code ouin</a></li>
         <% end %>
       </ul>
     </div>
