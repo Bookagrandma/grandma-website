@@ -6,10 +6,11 @@
     <ul class="nav navbar-nav">
       <li><%= link_to "Home", root_path %></li>
       <% if benevole_signed_in? %>
-      <li><%= link_to "Créer une mission", new_mission_path %></li>
+      <li><%= link_to "Votre bénévolat", missions_path %></li>
       <li><%= link_to "Votre profil", benevole_path(current_benevole.id) %></li>
+      <li><%= link_to "Voir les établissements déjà partenaires", etablissements_path %></li>
       <% else %>
-      <li><a href="missions#index">Les Missions</a></li>
+      
       <% end %>
     </ul>
   </div>
@@ -18,10 +19,8 @@
       <% if benevole_signed_in? %>
       <li><h3>Vous êtes connecté en tant que bénévole</h3></li>
       <li><h6>Bienvenue <strong><%= current_benevole.firstname %></strong></%></h6></li>
-      <li><%= link_to "Sign out", destroy_benevole_session_path, method: :delete %>|</li>
-      <li><%= link_to "Edit Account", edit_benevole_registration_path %>|</li>
-      <li><%= link_to "Voir les établissements déjà partenaires", etablissements_path %>|</li>
-      <li><%= link_to "Votre profil", benevole_path(id: current_benevole.id) %></li>
+      <li><%= link_to "Votre profil", benevole_path(id: current_benevole.id) %></li>|
+      <li><%= link_to "Se déconnecter", destroy_benevole_session_path, method: :delete %></li>
       <% else %>
       <li><%= link_to "sign in", new_benevole_session_path %>|</li>
       <li><%= link_to "sign up", new_benevole_registration_path %></li>

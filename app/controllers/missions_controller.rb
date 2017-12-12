@@ -1,6 +1,6 @@
 class MissionsController < ApplicationController
 
-	before_action :set_mission, only: [:show, :edit, :update, :destroy]
+  before_action :set_mission, only: [:show, :edit, :update, :destroy]
 
   # GET /missions
   # GET /missions.json
@@ -11,7 +11,7 @@ class MissionsController < ApplicationController
   # GET /missions/1
   # GET /missions/1.json
   def show
-     @mission = Mission.find(params[:id])
+    @mission = Mission.find(params[:id])
   end
 
   # GET /missions/new
@@ -27,15 +27,9 @@ class MissionsController < ApplicationController
   # POST /missions.json
   def create
     @mission = Mission.new(mission_params)
-
-
-
     respond_to do |format|
       if @mission.save
-          MissionMailer.new_mission(Mission.last).deliver_now
-
-
-
+        MissionMailer.new_mission(Mission.last).deliver_now
         format.html { redirect_to @mission, notice: 'Mission was successfully created.' }
         format.json { render :show, status: :created, location: @mission }
       else
@@ -50,6 +44,7 @@ class MissionsController < ApplicationController
   def update
     respond_to do |format|
       if @mission.update(mission_params)
+        MissionMailer.update_mission(Mission.last).deliver_now
         format.html { redirect_to @mission, notice: 'Mission was successfully updated.' }
         format.json { render :show, status: :ok, location: @mission }
       else
@@ -63,6 +58,7 @@ class MissionsController < ApplicationController
   # DELETE /missions/1.json
   def destroy
     @mission.destroy
+    MissionMailer.destroy_mission(Mission.last).deliver_now
     respond_to do |format|
       format.html { redirect_to missions_url, notice: 'Mission was successfully destroyed.' }
       format.json { head :no_content }
@@ -70,13 +66,17 @@ class MissionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_mission
-      @mission = Mission.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_mission
+    @mission = Mission.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def mission_params
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def mission_params
+    if benevole_signed_in?
       params.require(:mission).permit(:title, :body, :place, :appointment, :benevole_id, :etablissement_id)
+    else etablissement_signed_in?
+      params.require(:mission).permit(:title, :body, :place, :appointment, :etablissement_id)
     end
+  end
 end
