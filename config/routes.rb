@@ -23,11 +23,11 @@ Rails.application.routes.draw do
   end
 
   resources :benevoles do
-    resources :profils, controller: 'benevoles/profils'
+    resources :profils, controller: 'benevoles/profils', shallow: true
   end
 
   resources :etablissements do
-  resources :etprofils, controller: 'etablissements/etprofils'
+  resources :etprofils, controller: 'etablissements/etprofils', shallow: true
   end
 
 
