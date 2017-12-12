@@ -4,21 +4,31 @@
       <%= link_to "Book a Grandma", root_path, :class => "navbar-brand" %></li>
     </div>
     <ul class="nav navbar-nav">
-      <li><%= link_to "Home", root_path %></li>
-      <% if benevole_signed_in? %>
-      <li><%= link_to "Créer une mission", new_mission_path %></li>
-      <li><%= link_to "Votre profil", benevole_path(current_benevole.id) %></li>
-      <% else %>
-      <li><a href="missions#index">Les Missions</a></li>
+      <% if benevole_signed_in? == false && etablissement_signed_in? == false %>
+        <li><%= link_to "Home", root_path %></li>
+        <li><a href="missions#index">Les Missions</a></li>
+        <li class="button-right">Se connecter :</li>
+        <li><%= link_to new_benevole_session_path do %><i class="fa fa-user-circle-o" aria-hidden="true"></i><% end %></li>
+        <li><%= link_to new_etablissement_session_path do %><i class="fa fa-hospital-o" aria-hidden="true"></i><% end %></li>
+      <% elsif benevole_signed_in? %>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Créer une mission", new_mission_path %></li>
+        <li><%= link_to "Votre profil", benevole_path(id: current_benevole.id) %></li>
+        <li class="button-right"><%= link_to "Sign out", destroy_benevole_session_path, method: :delete %></li>
+      <% elsif etablissement_signed_in? %>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Créer une mission", new_mission_path %></li>
+        <li><%= link_to "Votre profil", etablissement_path(id: current_etablissement.id) %></li>
+        <li class="button-right"><%= link_to "Sign out", destroy_etablissement_session_path, method: :delete %></li>
       <% end %>
     </ul>
   </div>
-  <div class="account-infos">
+  <!-- <div class="account-infos">
     <ul>
       <% if benevole_signed_in? %>
       <li><h3>Vous êtes connecté en tant que bénévole</h3></li>
       <li><h6>Bienvenue <strong><%= current_benevole.firstname %></strong></%></h6></li>
-      <li><%= link_to "Sign out", destroy_benevole_session_path, method: :delete %>|</li>
+      <li>|</li>
       <li><%= link_to "Edit Account", edit_benevole_registration_path %>|</li>
       <li><%= link_to "Voir les établissements déjà partenaires", etablissements_path %>|</li>
       <li><%= link_to "Votre profil", benevole_path(id: current_benevole.id) %></li>
@@ -41,5 +51,5 @@
       <li><%= link_to "sign up", new_etablissement_registration_path %></li>
       <% end %>
     </ul>
-  </div>
+  </div> -->
 </nav>
