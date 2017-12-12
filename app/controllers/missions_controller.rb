@@ -72,6 +72,6 @@ class MissionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mission_params
-      params.require(:mission).permit(:name, :body, :benevole_id, :etablissement_id)
+      params.require(:mission).permit(:title, :body, :place, :appointment, :benevole_id, :etablissement_id)
     end
 end

@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @mission.name %>
+  <strong>Title:</strong>
+  <%= @mission.title %>
 </p>
 
 <p>
@@ -10,5 +10,16 @@
   <%= @mission.body %>
 </p>
 
+
+<p>
+  <strong>Place:</strong>
+  <%= @mission.place %>
+</p>
+
+
+<p>
+  <strong>Appointment:</strong>
+  <%= @mission.appointment %>
+</p>
 <%= link_to 'Edit', edit_mission_path(@mission) %> |
 <%= link_to 'Back', missions_path %>
