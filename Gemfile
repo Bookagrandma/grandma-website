@@ -23,6 +23,7 @@ gem 'gmaps4rails'
 gem 'simple_form'
 gem 'activeadmin'
 gem 'pg'
+gem "font-awesome-rails"
 gem 'rails-jquery-autocomplete'
 gem 'jquery-ui-rails'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'

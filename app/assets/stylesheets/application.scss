@@ -12,11 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@import "font-awesome";
 
 
 // COLORS
@@ -47,6 +48,12 @@ $red: #fa625f;
 }
 .nav-links:hover {
   color: $black;
+}
+
+
+// Fonts awsome icons size
+.fa:before {
+  font-size: 1.3em;
 }
 
 .cancel-links {
@@ -105,46 +112,25 @@ a {
 }
 
 // NAVABR STYLE
-.account-infos {
-  height: 40px;
-  background-color: $black;
-  padding: 0 20px;
-  margin-bottom: -10px;
-  li {
-    list-style: none;
-    float: left;
-    a {
-      margin: 5px;
-    }
-  }
-  h3 {
-    clear: both;
-  }
-  ul {
-    padding-left: 0px;
-  }
-  li, a, h3, h6 {
-    color: $white;
-    margin: 0;
-    line-height: 40px;
-  }
-  h6 {
-    margin-right: 10px;
-  }
-  h3 {
-    margin-right: 30px;
-  }
-}
 
 .container-fluid {
   height: 50px;
   padding: 0 30px
 }
 
+.button-right {
+  margin-left: 450px;
+  color: $white;
+  font-family: 'Nunito', 'Helveitca', sans-serif;
+  color: $white;
+  font-size: .8em;
+  line-height: 60px;
+}
+
 .navbar, .navbar-inverse {
   position: fixed;
   width: 100%;
-  background-color: $blue;
+  background-color: $black;
   border: none;
   border-radius: 0;
   padding: 0;
@@ -167,6 +153,10 @@ a {
       color: $white;
       font-size: 1.2em;
       line-height: 60px;
+      transition: all ease-in .2s;
+    }
+    li a:hover {
+      opacity: .5;
     }
   }
 }
