@@ -1,47 +1,80 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= render partial: "layouts/navbar" %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+<div class="page-container">
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+  <h2>Mettre à jour vos informations de <%= current_benevole.firstname %></h2>
+  <div class="decor-line"></div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-    <div><%= f.label :firstname %><br />
-       <%= f.text_field :firstname%></div>
+  <h3>Mes informations <span>:</span></h3>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
 
-    <div><%= f.label :lastname %><br />
-        <%= f.text_field :lastname%></div>
+    <div class="form-inputs">
+      <div class="form-line">
+        <!-- Email & name -->
+        <div>
+          <%= f.input :email, required: true, autofocus: true %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+        </div>
+        <div>
+          <%= f.label :firstname %><br />
+          <%= f.text_field :firstname%>
+        </div>
+        </div>
 
-    <div><%= f.label :birthday %><br />
-        <%= f.text_field :birthday%></div>
+        <div class="form-line">
+          <!-- Last name & bday -->
+          <div>
+            <%= f.label :lastname %><br />
+            <%= f.text_field :lastname%>
+          </div>
+          <div>
+            <%= f.label :birthday %><br />
+            <%= f.text_field :birthday%>
+          </div>
+        </div>
 
-    <div><%= f.label :address %><br />
-        <%= f.text_field :address%></div>
+        <div class="form-line">
+          <!-- Adresse & zip -->
+          <div>
+            <%= f.label :address %><br />
+            <%= f.text_field :address%>
+          </div>
+          <div>
+            <%= f.label :zip %><br />
+            <%= f.text_field :zip%>
+          </div>
+      </div>
 
-    <div><%= f.label :zip %><br />
-        <%= f.text_field :zip%></div>
+      <div class="form-line">
+        <!-- City & phone -->
+        <div>
+          <%= f.label :city %><br />
+          <%= f.text_field :city%>
+        </div>
+        <div>
+          <%= f.label :phone %><br />
+          <%= f.text_field :phone%>
+        </div>
+      </div>
 
-    <div><%= f.label :city %><br />
-        <%= f.text_field :city%></div>
+      <%= f.input :password, autocomplete: "off", hint: "Ne pas compléter si vous ne souhaitez pas le changer", required: false %>
+      <%= f.input :password_confirmation, required: false %>
+      <%= f.input :current_password, hint: "Entrez votre mot de passe pour confirmer les changements", required: true %>
+    </div>
 
-    <div><%= f.label :phone %><br />
-        <%= f.text_field :phone%></div>
+    <div class="form-actions">
+      <%= f.button :submit, "Mettre à jour" %>
+    </div>
+  <% end %>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-  </div>
+  <h3>Supprimer mon compte <span>:</span></h3>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
+  <p>Vous n'êtes plus interessé par le service ? <br>
+  <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "cancel-links" %></p>
 
-<h3>Cancel my account</h3>
+  <%= link_to "Back", :back, :class => "nav-links" %>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>
