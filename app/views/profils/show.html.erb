@@ -3,9 +3,11 @@
 <H3>Avatar</H3>
 
 <% if @profil.avatar? %>
-  <div class="avatar">
-    <%= image_tag @profil.avatar_url %>
-  </div>
+  <% @avatar.each do |avatar| %>
+    <div class="avatar">
+      <%= image_tag @profil.avatar_url %>
+    </div>
+  <% end %>
 <% end %>
 
 <%= form_for @profil, :html => {:multipart => true} do |f| %>

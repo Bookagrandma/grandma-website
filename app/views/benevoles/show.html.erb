@@ -1,0 +1,47 @@
+
+
+<H3>Avatar</H3>
+
+<% if @benevole.avatar? %>
+  <div class="avatar">
+    <%= image_tag @benevole.avatar_url %>
+  </div>
+<% end %>
+
+<%= form_for [@benevole], :html => {:multipart => true} do |f| %>
+  <p><%= f.file_field :avatar %></p>
+  <p><%= f.submit %></p>
+<% end %>
+
+<H3>Informations</H3>
+<%= @benevole.firstname %>
+<%= @benevole.lastname %>
+<%= @benevole.birthday %>
+<%= @benevole.gender %>
+
+<H3>Adresse</H3>
+<%= @benevole.address %>
+<%= @benevole.zip %>
+<%= @benevole.city %>
+
+<H3>Contact</H3>
+<%= @benevole.email %>
+<%= @benevole.phone %>
+
+<H3>Motivation</H3>
+
+<% if (@benevole.motivation == nil)  %>
+  <%= form_tag benevole_path(@benevole), method: :put do %>
+    <%= label_tag 'motivation', 'ta motivation' %>
+    <%= text_area_tag :motivation, '', :class => "form-control" %>
+    <%= submit_tag "entrer", :class => "btn btn-default" %>
+  <% end %>
+<% else %>
+  <%= @benevole.motivation %>
+<% end %>
+
+<% if benevole_signed_in? && @benevole.id == current_benevole.id%>
+<li><%= link_to "Edit Account", edit_benevole_registration_path %>|</li>
+<% end %>
+
+<H3>Missions</H3>

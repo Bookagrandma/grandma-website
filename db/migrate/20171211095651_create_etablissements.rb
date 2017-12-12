@@ -2,6 +2,7 @@ class CreateEtablissements < ActiveRecord::Migration[5.1]
   def change
     create_table :etablissements do |t|
     	t.string "name"
+    	t.string "avatar"
 	    t.string "address"
 	    t.string "zip"
 	    t.string "city"
@@ -9,6 +10,7 @@ class CreateEtablissements < ActiveRecord::Migration[5.1]
 	    t.string "category"
 	    t.string "email"
 	    t.string "phone"
+	    t.text "description"
 	    t.datetime "created_at", null: false
 	    t.datetime "updated_at", null: false
 	    t.string "encrypted_password", default: "", null: false

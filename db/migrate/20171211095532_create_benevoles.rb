@@ -8,8 +8,10 @@ class CreateBenevoles < ActiveRecord::Migration[5.1]
     t.integer "zip"
     t.string "city"
     t.string "gender"
+    t.string "avatar"
     t.string "email"
     t.integer "phone"
+    t.text "motivation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false

@@ -5,8 +5,7 @@ class BenevolesController < ApplicationController
 	end
 
 	def show
-		@benevole = Benevole.find(:benevole_id) 
-		@profil = @benevole.profil
+		@benevole = Benevole.find(params[:id]) 
 	end
 
 	def index
