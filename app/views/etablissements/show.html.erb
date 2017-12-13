@@ -1,52 +1,51 @@
-<p>
-  <strong>Name</strong>
-  <%= @etablissement.name%>
-</p>
- 
- <p>
-  <strong>Address</strong>
-  <%= @etablissement.address%>
-</p>
+<%= render partial: "layouts/navbar" %>
 
-<p>
-  <strong>ZIP</strong>
-  <%= @etablissement.zip%>
-</p>
+<div class="page-container hopital-profile">
 
-<p>
-  <strong>City</strong>
-  <%= @etablissement.city%>
-</p>
+  <h2>Bienvenue sur la page de <%= @etablissement.name%></h2>
+  <div class="decor-line"></div>
+    <div class="profile-card-container">
+      <div class="profile-card">
+        <h2><i class="fa fa-map-marker" aria-hidden="true"></i>Localisation</h2>
+        <h3>Address</h3>
+        <p><%= @etablissement.address%></p>
 
-<p>
-  <strong>Dept</strong>
-  <%= @etablissement.dept%>
-</p>
+        <h3>ZIP</h3>
+        <p><%= @etablissement.zip%></p>
 
-<p>
-  <strong>Category</strong>
-  <%= @etablissement.category%>
-</p>
+        <h3>City</h3>
+        <p><%= @etablissement.city%></p>
 
-<p>
-  <strong>Phone</strong>
-  <%= @etablissement.phone%>
-</p>
- 
+        <h3>Dept</h3>
+        <p><%= @etablissement.dept%></p>
+      </div>
 
-<p>NEW MISSION</p>
-<%= link_to 'New Mission', new_mission_path %>
+      <div class="profile-card">
+        <h2><i class="fa fa-phone" aria-hidden="true"></i>Contact</h2>
+        <h3>Category</h3>
+        <p><%= @etablissement.category%></p>
 
-<br>
+        <h3>Phone</h3>
+        <p><%= @etablissement.phone%></p>
+      </div>
+  </div>
 
 
-<%= link_to 'Retour liste etablissemet', etablissements_path %> |
- <%= link_to 'Supprimer l\'établissement', @etablissement,
-              method: :delete,
-              data: { confirm: 'Etes vous certain?' } %>
-</table>
+  <h3>NEW MISSION</h3>
+  <%= link_to 'New Mission', new_mission_path %>
 
-<!-- 
+  <br>
+
+
+  <%= link_to 'Retour liste etablissemet', etablissements_path %> |
+   <%= link_to 'Supprimer l\'établissement', @etablissement,
+                method: :delete,
+                data: { confirm: 'Etes vous certain?' } %>
+  </table>
+
+</div>
+
+<!--
 
 <form method="post" enctype="text/plain" action="mailto:<%#= @etablissement.email%>?subject=Mise en contact via BookaGrandma&body=Le corps du message&cc=<%#= current_benevole.email %>&bcc=bookagrandma@gmail.com">
   <br>
@@ -56,5 +55,5 @@
 
   <br>
 
-  <input value="Envoyez un email" type="submit"></input> 
+  <input value="Envoyez un email" type="submit"></input>
 </form> -->

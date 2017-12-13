@@ -4,21 +4,6 @@
       <%= link_to "Book a Grandma", root_path, :class => "navbar-brand" %></li>
     </div>
     <ul class="nav navbar-nav">
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <li><%= link_to "Home", root_path %></li>
-      <% if benevole_signed_in? %>
-      <li><%= link_to "Votre bénévolat", missions_path %></li>
-      <li><%= link_to "Votre profil", benevole_path(current_benevole.id) %></li>
-      <li><%= link_to "Voir les établissements déjà partenaires", etablissements_path %></li>
-      <% else %>
-      
-=======
-=======
->>>>>>> 8bee51f2f338fadb43d3828521d95df9cc45d092
->>>>>>> dev
       <% if benevole_signed_in? == false && etablissement_signed_in? == false %>
         <li><%= link_to "Home", root_path %></li>
         <li><a href="missions#index">Les Missions</a></li>
@@ -35,18 +20,7 @@
         <li><%= link_to "Créer une mission", new_mission_path %></li>
         <li><%= link_to "Votre profil", etablissement_path(id: current_etablissement.id) %></li>
         <li class="button-right"><%= link_to "Sign out", destroy_etablissement_session_path, method: :delete %></li>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> lundi
->>>>>>> dev
       <% end %>
     </ul>
   </div>
 </nav>
-=======
-      <% end %>
-    </ul>
-  </div>
-</nav>
->>>>>>> 8bee51f2f338fadb43d3828521d95df9cc45d092
