@@ -1,14 +1,15 @@
-Bonjour <%= @benevole.email %>
+Bonjour,
 
+<%= @etablissement.name %> fait parti des établissements qui peuvent recevoir des bénévoles qui veulent du lien avec vos pensionnaires.
 
-Bonjour <%= @etablissement.email %>
+<%= @benevole.firstname %> <%= @benevole.lastname %> vous a fait une proposition.
+En effet, <%= @benevole.firstname %> souhaite faire du bénévolat dans votre établissement.
 
-A new mission was posted for your 
+Voici sa proposition :
 
-<%= @mission.title %>
-<%= @mission.body %>
-<%= @mission.place %>
-<%= @mission.appointment %>
+Proposition : <%= @mission.title %>
+Détail : <%= @mission.body %>
+Lieu : <%= @mission.place %>
+Temps disponible : <%= @mission.appointment %>
 
-To reply to this mission, please visit the item page at :
-
+Pour voir cette proposition, rdv sur cette page : <%= mission_url(@mission.id) %>
