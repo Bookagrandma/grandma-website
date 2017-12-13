@@ -1,6 +1,7 @@
-class MissionsController < ApplicationController
+  class MissionsController < ApplicationController
 
   before_action :set_mission, only: [:show, :edit, :update, :destroy]
+  before_action :find_etablissement
 
   # GET /missions
   # GET /missions.json
@@ -16,8 +17,9 @@ class MissionsController < ApplicationController
 
   # GET /missions/new
   def new
-    @mission = Mission.new
-  end
+   @mission = Mission.new
+   @mission = current_benevole.missions.new
+ end
 
   # GET /missions/1/edit
   def edit
@@ -25,9 +27,16 @@ class MissionsController < ApplicationController
 
   # POST /missions
   # POST /missions.json
+
+
   def create
-    @mission = Mission.new(mission_params)
+    @etablissement = Etablissement.find(params[:id])
+    @mission = @etablissement.missions.new(params[:mission])
+    @mission = current_benevole.missions.new(mission_params)
+    @mission.benevole_id = current_benevole.id
+
     respond_to do |format|
+    @mission.save
       if @mission.save
         MissionMailer.new_mission_b(Mission.last).deliver_now
         MissionMailer.new_mission_e(Mission.last).deliver_now
@@ -74,12 +83,12 @@ class MissionsController < ApplicationController
     @mission = Mission.find(params[:id])
   end
 
+  def find_etablissement
+    @etablissement = Etablissement.find(params[:id])
+  end
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def mission_params
-    if benevole_signed_in?
       params.require(:mission).permit(:title, :body, :place, :appointment, :benevole_id, :etablissement_id)
-    else etablissement_signed_in?
-      params.require(:mission).permit(:title, :body, :place, :appointment, :etablissement_id)
-    end
   end
 end
