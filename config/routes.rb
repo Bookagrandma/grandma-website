@@ -21,7 +21,9 @@ Rails.application.routes.draw do
 
   resources :missions
   resources :benevoles 
-  resources :etablissements 
+  resources :etablissements do
+    resources :missions
+  end
 
 
   resources :etablissements do
