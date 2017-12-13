@@ -1,9 +1,16 @@
-A new mission was posted for your 
+<h4>Bonjour <%= @benevole.firstname %>,</h4>
 
-<%= @mission.title %>
-<%= @mission.body %>
-<%= @mission.place %>
-<%= @mission.appointment %>
 
-To reply to this mission, please visit the item page at :
+<p>Votre commentaire <%= @mission.title %> sur l'établissement : <%= @etablissement.name %> a bien été mis à jour.</p>
+
+
+<p>Pour rappel, la voici :</p>
+<blockquote>
+<em>Proposition : <%= @mission.title %></em>
+<em>Détail : <%= @mission.body %></em>
+<em>Lieu : <%= @mission.place %></em>
+<em>Temps disponible : <%= @mission.appointment %></em>
+</blockquote>
+
+<p>Pour voir modifier ou supprimer, rdv sur cette page : <%= mission_url(@mission.id) %></p>
 

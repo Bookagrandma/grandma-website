@@ -1,14 +1,18 @@
-<p>
-	A new mission was posted for your 
-</p>
+<h4>Bonjour,</h4>
+
+
+<p><%= @etablissement.name %> fait parti des établissements qui peuvent recevoir des bénévoles qui veulent du lien avec vos pensionnaires. </p>
+
+<p><%= @benevole.firstname %> <%= @benevole.lastname %> a supprimé une proposition.</p>
+
+
+
+<p>Voici sa proposition supprimé :</p>
 <blockquote>
-	<em><%= @mission.title %></em>
-	<em><%= @mission.body %></em>
-	<em><%= @mission.place %></em>
-	<em><%= @mission.appointment %></em>
+<em>Proposition : <%= @mission.title %></em>
+<em>Détail : <%= @mission.body %></em>
+<em>Lieu : <%= @mission.place %></em>
+<em>Temps disponible : <%= @mission.appointment %></em>
 </blockquote>
 
-<p>
-To reply to this mission, please visit the item page at :
 
-</p>

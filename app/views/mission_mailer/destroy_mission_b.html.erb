@@ -1,14 +1,15 @@
-<p>
-	A new mission was posted for your 
-</p>
+<h4>Bonjour <%= @benevole.firstname %>,</h4>
+
+
+<p>Votre commentaire <%= @mission.title %> sur l'établissement : <%= @etablissement.name %> a bien été supprimé.</p>
+
+
+<p>Pour rappel, la voici :</p>
 <blockquote>
-	<em><%= @mission.title %></em>
-	<em><%= @mission.body %></em>
-	<em><%= @mission.place %></em>
-	<em><%= @mission.appointment %></em>
+<em>Proposition : <%= @mission.title %></em>
+<em>Détail : <%= @mission.body %></em>
+<em>Lieu : <%= @mission.place %></em>
+<em>Temps disponible : <%= @mission.appointment %></em>
 </blockquote>
 
-<p>
-To reply to this mission, please visit the item page at :
 
-</p>
