@@ -49,7 +49,6 @@ class MissionMailer < ApplicationMailer
 
 
 
-
   def destroy_mission_b(mission)
     @mission = mission
     @benevole = @mission.benevole
