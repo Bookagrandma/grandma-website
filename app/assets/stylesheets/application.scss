@@ -25,6 +25,7 @@ $blue: #5ABBA7;
 $black: #272624;
 $white: #E9ECE6;
 $red: #fa625f;
+$purple: #c42ef1;
 
 // FONTS
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700,900|Open+Sans:300,400,400i,700');
@@ -65,7 +66,7 @@ $red: #fa625f;
   border-radius: 2px;
   display: inline-block;
   margin-top: 10px;
-  transition: all ease-out .2s;
+  transition: all ease-in .2s;
 }
 .cancel-links:hover {
   color: $white;
@@ -168,7 +169,7 @@ nav {
 
 // HOMEPAGE
 .intro {
-  padding: 300px 50px 200px;
+  padding: 250px 50px 150px;
   margin-bottom: 50px;
   background: url("pattern.svg");
   background-position: center;
@@ -179,20 +180,49 @@ nav {
     font-size: 2.5em;
     color: $white;
     text-align: center;
+    margin-bottom: 50px;
+    text-shadow: 0px 0px 8px rgba(150, 150, 150, 0.7);
+  }
+  .home-signup {
+    text-align: center;
+    h4 {
+      margin-bottom: 30px;
+      font-size: 1.4em;
+      text-transform: uppercase;
+      color: $white;
+      text-shadow: 0px 0px 8px rgba(150, 150, 150, 0.7);
+    }
+    a {
+      margin: 0 20px;
+      font-family: 'Nunito', 'Helvetica', sans-serif;
+      font-size: 1.7em;
+      font-weight: 700;
+      color: $white;
+      padding: 8px 28px;
+      border-radius: 50px;
+      -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
+      -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
+      box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
+      transition: all h4cubic-bezier(.25,.8,.25,1) .2s;
+      display: inline-block;
+    }
+    .bnvl-sup {
+      background-color: #f29d2e;
+    }
+    .etbl-sup {
+      background-color: $purple;
+    }
+    a:hover {
+      -webkit-box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.3);
+      -moz-box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.3);
+      box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.3);
+      text-decoration: none;
+    }
   }
 }
 
 .etablissements-map {
   text-align: center;
-}
-
-
-// EDIT PROFIL
-.avatar {
-  width: 75px;
-  height: 75px;
-  background-color: blue;
-  opacity: .2;
 }
 
 // EDIT INFO
@@ -246,7 +276,7 @@ nav {
   -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
   -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
   box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
-  transition: all ease-out .2s;
+  transition: all ease-in .2s;
   margin-bottom: 30px;
 }
 
@@ -266,17 +296,6 @@ nav {
     grid-template-rows: auto;
     grid-template-columns: 1fr 1fr;
   }
-  .profile-card {
-    padding: 30px;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.2s cubic-bezier(.25,.8,.25,1);
-    background-color: #fff;
-  }
-  .profile-card:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  }
   p {
     font-family: 'Open Sans', 'Helvetica', sans-serif;
     font-size: 2.5em;
@@ -286,4 +305,94 @@ nav {
     font-size: .8em;
     color: $blue;
   }
+}
+
+.profile-card {
+  padding: 30px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.2s cubic-bezier(.25,.8,.25,1);
+  background-color: #fff;
+}
+.profile-card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+//PROFIL BENEVOLE
+.benevole-profile {
+  background-color: rgba(233, 236, 230, 0.45);
+  .profile-card {
+    margin: 0;
+  }
+  h2 {
+    span {
+      color: $blue;
+    }
+  }
+  h3 {
+    margin: 40px 0 20px 10px;
+  }
+  h4 {
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    font-weight: 700;
+    font-size: 1.6em;
+  }
+  .avatar {
+    //scale to change in avatar.rb
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    border: 3px solid $blue;
+  }
+  .id-head {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 0fr 1fr;
+    p {
+      font-family: 'Nunito', 'Helvetica', sans-serif;
+      margin-left: 30px;
+    }
+    .name {
+      font-weight: 700;
+      font-size: 2.5em;
+      line-height: 65px;
+    }
+    .birth {
+      font-size: 1em;
+      font-weight: 400;
+      line-height: 0;
+    }
+  }
+  .id-main {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 20px auto;
+    p {
+      font-family: 'Open Sans', 'Helvetica', sans-serif;
+      font-size: 1.3em;
+      padding-left: 20px;
+    }
+    i {
+      margin-right: 8px;
+      color: $blue;
+      font-size: .9em;
+    }
+  }
+}
+
+.edit-info {
+  font-family: 'Nunito', 'Helvetica', sans-serif;
+  font-size: 1.2em;
+  padding: 3px 10px;
+  border-radius: 2px;
+  border: 2px solid $purple;
+  color: $purple;
+  transition: all ease-in .2s;
+}
+.edit-info:hover {
+  background-color: $purple;
+  color: $white;
+  text-decoration: none;
 }

@@ -8,6 +8,7 @@
     <%= f.error_notification %>
 
     <div class="form-inputs">
+<<<<<<< HEAD
       <%= f.input :email, required: true, autofocus: true %>
       <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
       <%= f.input :password_confirmation, required: true %>
@@ -32,6 +33,49 @@
       <div><%= f.label :phone %><br />
           <%= f.text_field :phone%></div>
 
+=======
+      <div class="form-line">
+        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+      </div>
+      <div class="form-line">
+        <%= f.input :password_confirmation, required: true %>
+        <div>
+          <%= f.label :firstname %><br />
+          <%= f.text_field :firstname%>
+        </div>
+      </div>
+      <div class="form-line">
+        <div>
+          <%= f.label :lastname %><br />
+          <%= f.text_field :lastname%>
+        </div>
+        <div>
+          <%= f.label :birthday %><br />
+          <%= f.text_field :birthday%>
+        </div>
+      </div>
+      <div class="form-line">
+        <div>
+          <%= f.label :address %><br />
+          <%= f.text_field :address%>
+        </div>
+        <div>
+          <%= f.label :zip %><br />
+          <%= f.text_field :zip%>
+        </div>
+      </div>
+      <div class="form-line">
+        <div>
+          <%= f.label :city %><br />
+          <%= f.text_field :city%>
+        </div>
+        <div>
+          <%= f.label :phone %><br />
+          <%= f.text_field :phone%>
+        </div>
+      </div>
+>>>>>>> mercredi
     </div>
 
 
