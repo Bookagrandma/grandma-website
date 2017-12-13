@@ -7,7 +7,7 @@ class MissionMailer < ApplicationMailer
     @bag = 'bookagrandma@gmail.com'
 
     mail to: @benevole.email,
-      subject: "Nouveau commentaire sur l'établissement : #{@etablissement.name}",
+      subject: "Votre commentaire (#{mission.title}) sur l'établissement : #{@etablissement.name} a bien été ajouté.",
       bcc: @bag
   end
 
@@ -19,7 +19,7 @@ class MissionMailer < ApplicationMailer
     @bag = 'bookagrandma@gmail.com'
 
     mail to: @etablissement.email,
-      subject: "Vous avez un nouveau commentaire de #{@benevole.firstname} #{@benevole.lastname}",
+      subject: "#{@benevole.firstname} #{@benevole.lastname} vient de poster un nouveau commentaire (#{mission.title}) sur la page de votre établissement.",
       bcc: @bag
   end
 
@@ -46,7 +46,6 @@ class MissionMailer < ApplicationMailer
       subject: "#{@benevole.firstname} #{@benevole.lastname} a modifié sa proposition : #{mission.title}",
       bcc: @bag
   end
-
 
 
 
