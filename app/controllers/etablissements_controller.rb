@@ -5,6 +5,9 @@ class EtablissementsController < ApplicationController
   #   @etablissements = Etablissement.search(params[:search], params[:id])
   # end
 
+  before_action :authenticate_etablissement!, only: [:edit, :update]
+  before_action :set_etablissement
+
  autocomplete :city, :name, :dept
 
   def index
@@ -22,7 +25,18 @@ class EtablissementsController < ApplicationController
   end
 
   def update
-  end
+    respond_to do |format|
+      if @etablissement.update(etablissement_params)
+        format.html { redirect_to @etablissement, notice: 'etablissement was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @etablissement }
+      else
+        format.html { render :edit }
+        flash.new[:alert] = "Something went wrong. Please try again"
+
+        # format.json { render json: @etablissement.errors, status: :unprocessable_entity }
+      end
+      end
+    end
 
 
   private
@@ -33,6 +47,6 @@ class EtablissementsController < ApplicationController
 
       #Never trust parameters from the scary internet, only allow the white list through.
       def etablissement_params
-        params.require(:etablissement).permit(:name, :address, :zip, :city, :type, :email, :phone)
+        params.require(:etablissement).permit(:name, :address, :zip, :city, :type, :email, :phone, :avatar, :description)
       end
 end
