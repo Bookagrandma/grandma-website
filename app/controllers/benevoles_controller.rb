@@ -1,8 +1,8 @@
 class BenevolesController < ApplicationController
 
-	before_action :authenticate_benevole!, only: [:edit, :update]
+	# before_action :authenticate_benevole!, only: [:edit, :update]
 	# before_action :check_authorization, only: [:edit, :update]
-	before_action :set_benevole
+	# before_action :set_benevole
 
 	def index
 		@currentBenevole = current_benevole.id
