@@ -4,18 +4,6 @@
       <%= link_to "Book a Grandma", root_path, :class => "navbar-brand" %></li>
     </div>
     <ul class="nav navbar-nav">
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <li><%= link_to "Home", root_path %></li>
-      <% if benevole_signed_in? %>
-      <li><%= link_to "Votre bénévolat", missions_path %></li>
-      <li><%= link_to "Votre profil", benevole_path(current_benevole.id) %></li>
-      <li><%= link_to "Voir les établissements déjà partenaires", etablissements_path %></li>
-      <% else %>
-      
-=======
-=======
->>>>>>> 8bee51f2f338fadb43d3828521d95df9cc45d092
       <% if benevole_signed_in? == false && etablissement_signed_in? == false %>
         <li><%= link_to "Home", root_path %></li>
         <li><a href="missions#index">Les Missions</a></li>
@@ -32,49 +20,7 @@
         <li><%= link_to "Créer une mission", new_mission_path %></li>
         <li><%= link_to "Votre profil", etablissement_path(id: current_etablissement.id) %></li>
         <li class="button-right"><%= link_to "Sign out", destroy_etablissement_session_path, method: :delete %></li>
-<<<<<<< HEAD
->>>>>>> lundi
-      <% end %>
-    </ul>
-  </div>
-  <!-- <div class="account-infos">
-    <ul>
-      <% if benevole_signed_in? %>
-      <li><h3>Vous êtes connecté en tant que bénévole</h3></li>
-      <li><h6>Bienvenue <strong><%= current_benevole.firstname %></strong></%></h6></li>
-<<<<<<< HEAD
-      <li><%= link_to "Votre profil", benevole_path(id: current_benevole.id) %></li>|
-      <li><%= link_to "Se déconnecter", destroy_benevole_session_path, method: :delete %></li>
-=======
-      <li>|</li>
-      <li><%= link_to "Edit Account", edit_benevole_registration_path %>|</li>
-      <li><%= link_to "Voir les établissements déjà partenaires", etablissements_path %>|</li>
-      <li><%= link_to "Votre profil", benevole_path(id: current_benevole.id) %></li>
->>>>>>> lundi
-      <% else %>
-      <li><%= link_to "sign in", new_benevole_session_path %>|</li>
-      <li><%= link_to "sign up", new_benevole_registration_path %></li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="account-infos">
-    <ul>
-      <% if etablissement_signed_in? %>
-      <li><h3>Vous êtes connecté en tant qu'établissement partenaire</h3></li>
-      <li><h6>Bienvenue <strong><%= current_etablissement.name %></strong></h6></li>
-      <li><%= link_to "Sign out", destroy_etablissement_session_path, method: :delete %>|</li>
-      <li><%= link_to "Edit Account", edit_etablissement_registration_path %>|</li>
-      <li><%= link_to "Voir les établissements déjà partenaires", etablissements_path %></li>
-      <% else %>
-      <li><%= link_to "sign in", new_etablissement_session_path %>|</li>
-      <li><%= link_to "sign up", new_etablissement_registration_path %></li>
-      <% end %>
-    </ul>
-  </div> -->
-</nav>
-=======
       <% end %>
     </ul>
   </div>
 </nav>
->>>>>>> 8bee51f2f338fadb43d3828521d95df9cc45d092

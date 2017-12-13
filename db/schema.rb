@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211095651) do
+ActiveRecord::Schema.define(version: 20171211105148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,10 +23,8 @@ ActiveRecord::Schema.define(version: 20171211095651) do
     t.integer "zip"
     t.string "city"
     t.string "gender"
-    t.string "avatar"
     t.string "email"
     t.integer "phone"
-    t.text "motivation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
@@ -40,9 +38,16 @@ ActiveRecord::Schema.define(version: 20171211095651) do
     t.string "last_sign_in_ip"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+  end
+
   create_table "etablissements", force: :cascade do |t|
     t.string "name"
-    t.string "avatar"
     t.string "address"
     t.string "zip"
     t.string "city"
@@ -50,7 +55,6 @@ ActiveRecord::Schema.define(version: 20171211095651) do
     t.string "category"
     t.string "email"
     t.string "phone"
-    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "encrypted_password", default: "", null: false
@@ -62,6 +66,14 @@ ActiveRecord::Schema.define(version: 20171211095651) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+  end
+
+  create_table "etprofils", force: :cascade do |t|
+    t.text "description"
+    t.string "avatar"
+    t.integer "etablissement_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "missions", force: :cascade do |t|
@@ -71,6 +83,14 @@ ActiveRecord::Schema.define(version: 20171211095651) do
     t.datetime "appointment"
     t.integer "benevole_id"
     t.integer "etablissement_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profils", force: :cascade do |t|
+    t.text "motivation"
+    t.string "avatar"
+    t.integer "benevole_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
