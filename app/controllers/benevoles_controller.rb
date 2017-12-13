@@ -1,7 +1,7 @@
 class BenevolesController < ApplicationController
 
 	before_action :authenticate_benevole!, only: [:edit, :update]
-	before_action :check_authorization, only: [:edit, :update]
+	# before_action :check_authorization, only: [:edit, :update]
 	before_action :set_benevole
 
 	def index
@@ -35,17 +35,17 @@ class BenevolesController < ApplicationController
         @benevole = Benevole.find(params[:id])
       end
 
-      def check_authorization
-      	unless current_benevole.id == params[:id].to_i
-      		redirect_to root_url
-      end
+      # def check_authorization
+      # 	unless current_benevole.id == params[:id].to_i
+      # 		redirect_to root_url
+      # end
 
       #Never trust parameters from the scary internet, only allow the white list through.
       def benevole_params
         params.require(:benevole).permit(:firstname, :lastname, :birthday, :address, :zip, :city, :gender, :avatar, :email, :phone, :motivation)
       end	
     end
-end
+
 
 
 
