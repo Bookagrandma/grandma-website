@@ -10,5 +10,7 @@ class Benevole < ApplicationRecord
 	has_many :etablissements, through: :missions
 
 	mount_uploader :avatar, AvatarUploader
+
+	validates :avatar, presence: true
 	
 end
