@@ -1,41 +1,52 @@
+<%= render partial: "layouts/navbar" %>
 
+<div class="page-container benevole-profile">
 
-<H3>Avatar</H3>
+  <h2>Bienvenue sur le profil de <span><%= @benevole.firstname %></span></h2>
+  <div class="decor-line"></div>
 
-<% if @benevole.avatar? %>
-  <div class="avatar">
-    <%= image_tag @benevole.avatar_url %>
+  <h3>Carte d'identité de <%= @benevole.firstname %></h3>
+    <div class="profile-card">
+      <div class="id-head">
+      <% if @benevole.avatar? %>
+          <%= image_tag @benevole.avatar_url, :class => 'avatar' %>
+      <% end %>
+      <div>
+        <p class="name"><%= @benevole.firstname %> <%= @benevole.lastname %>
+        <p class="birth"><%= @benevole.birthday %> | <%= @benevole.gender %></p>
+      </div>
+    </div>
+    <div class="id-main">
+      <div>
+        <h4><i class="fa fa-map-marker" aria-hidden="true"></i>Adresse</h4>
+        <p><%= @benevole.address %></p>
+        <p><%= @benevole.zip %></p>
+        <p><%= @benevole.city %></p>
+      </div>
+      <div>
+        <h4><i class="fa fa-mobile" aria-hidden="true"></i>Contact</h4>
+        <p><%= @benevole.email %></p>
+        <p><%= @benevole.phone %></p>
+      </div>
+      <div>
+      <h4><i class="fa fa-lightbulb-o" aria-hidden="true"></i>Motivation</h4>
+        <% if (@benevole.motivation == nil)  %>
+          <p><%= render html: "N'oubliez pas de remplir votre motivation" %></p>
+          <% else %>
+          <p><%= @benevole.motivation %></p>
+        <% end %>
+      </div>
+    </div>
+    <div class="id-footer">
+      <% if benevole_signed_in? && @benevole.id == current_benevole.id%>
+      <%= link_to "Edit Account", edit_benevole_registration_path, :class => 'edit-info' %>
+      <% end %>
+    </div>
   </div>
-<% end %>
 
-<H3>Informations</H3>
-<%= @benevole.firstname %>
-<%= @benevole.lastname %>
-<%= @benevole.birthday %>
-<%= @benevole.gender %>
-
-<H3>Adresse</H3>
-<%= @benevole.address %>
-<%= @benevole.zip %>
-<%= @benevole.city %>
-
-<H3>Contact</H3>
-<%= @benevole.email %>
-<%= @benevole.phone %>
-
-<H3>Motivation</H3>
-
-<% if (@benevole.motivation == nil)  %>
-  <%= puts "------N'oubliez pas de remplir votre motivation-----" %>
-  <% else %>
-  <%= @benevole.motivation %>
-<% end %>
-
-<% if benevole_signed_in? && @benevole.id == current_benevole.id%>
-<li><%= link_to "Edit Account", edit_benevole_registration_path %></li>
-<% end %>
-
- <H3>Missions</H3> 
-
-
-
+   <h3>Voici les missions de <%= @benevole.firstname %></h3>
+   <div class="profile-card">
+     <!-- En dur : à supprimer quand une mission est générée -->
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+   </div>
+</div>

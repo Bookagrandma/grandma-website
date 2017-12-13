@@ -11,6 +11,6 @@ class Benevole < ApplicationRecord
 
 	mount_uploader :avatar, AvatarUploader
 
-	validates :avatar, presence: true
-	
+	# validates :avatar, presence: true
+
 end

@@ -10,6 +10,13 @@
 
   <div class="intro">
     <p>Bienvenue sur le site qui connecte les bénévoles souhaitant donner le meilleur d'eux même aux établissements de santé dans le besoin.</p>
+    <% if benevole_signed_in? == false && etablissement_signed_in? == false %>
+    <div class="home-signup">
+      <h4>S'enregister en tant que :</h4>
+      <%= link_to "Bénevole", new_benevole_registration_path, :class => 'bnvl-sup' %>
+      <%= link_to "Etablissement", new_etablissement_registration_path, :class => 'etbl-sup' %>
+    </div>
+    <% end %>
   </div>
 
   <div class="etablissements-map">
