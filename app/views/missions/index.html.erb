@@ -22,7 +22,7 @@
         <p><%= mission.place %></p>
         <p><%= mission.appointment %></p>
      
-        <% if benevole_signed_in? && current_benevole.id == mission.benevole_id  %>
+        <% if benevole_signed_in? && current_benevole.id == mission.benevole_id  || etablissement_signed_in? && current_etablissement.id == mission.etablissement_id   %>
         <%= link_to 'Modifier', edit_mission_path(mission), :class => 'edit-links' %>
         <%= link_to 'Supprimer', mission, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'cancel-links' %>
     </div><br> <% else %> </div><br> <% end %>
