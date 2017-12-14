@@ -18,14 +18,14 @@ Rails.application.routes.draw do
     confirmations:      "etablissements/confirmations",
   }
 
-  resources :missions
+  
   resources :benevoles
 
 
   resources :etablissements do
-    resources :missions
+    resources :missions, only: [:index, :new, :create]
   end
-
+  resources :missions, only: [:show, :edit, :update, :destroy]
 
   resources :missions do
     resources :etablissements
