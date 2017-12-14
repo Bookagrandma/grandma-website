@@ -10,11 +10,4 @@ class Benevole < ApplicationRecord
 	has_many :etablissements, through: :missions
 
 	mount_uploader :avatar, AvatarUploader
-<<<<<<< HEAD
-	
-=======
-
-	# validates :avatar, presence: true
-
->>>>>>> mercredi
 end

@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(version: 20171213135501) do
     t.index ["reset_password_token"], name: "index_benevoles_on_reset_password_token", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+  end
+
   create_table "etablissements", force: :cascade do |t|
     t.string "name"
     t.string "avatar"
@@ -66,6 +74,14 @@ ActiveRecord::Schema.define(version: 20171213135501) do
     t.string "last_sign_in_ip"
   end
 
+  create_table "etprofils", force: :cascade do |t|
+    t.text "description"
+    t.string "avatar"
+    t.integer "etablissement_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "missions", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -73,6 +89,14 @@ ActiveRecord::Schema.define(version: 20171213135501) do
     t.datetime "appointment"
     t.integer "benevole_id"
     t.integer "etablissement_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profils", force: :cascade do |t|
+    t.text "motivation"
+    t.string "avatar"
+    t.integer "benevole_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

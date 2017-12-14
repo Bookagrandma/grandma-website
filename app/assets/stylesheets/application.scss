@@ -203,7 +203,7 @@ nav {
       -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
       -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
       box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
-      transition: all h4cubic-bezier(.25,.8,.25,1) .2s;
+      transition: all ease-in .2s;
       display: inline-block;
     }
     .bnvl-sup {
