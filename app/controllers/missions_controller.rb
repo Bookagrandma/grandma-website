@@ -17,9 +17,7 @@ class MissionsController < ApplicationController
 
   # GET /missions/new
   def new
-    @mission = Mission.new
-    @etablissement = Etablissement.find(params[:etablissement_id])
-    @benevole = current_benevole 
+    @etablissement = Etablissement.find(params[:etablissement_id]) 
     @mission = @etablissement.missions.new
     
 
@@ -40,6 +38,7 @@ class MissionsController < ApplicationController
 
   # GET /missions/1/edit
   def edit
+    @mission = Mission.find(params[:id])
   end
 
   # POST /missions
@@ -47,15 +46,11 @@ class MissionsController < ApplicationController
 
 
   def create
-    #@etablissement = Etablissement.find(params[:id])
-    #@mission = @etablissement.missions.new(params[:mission])
-    #@mission = current_benevole.missions.new(mission_params)
-    #@mission.benevole_id = current_benevole.id
 
-    # @etablissement = Etablissement.find(params[:etablissement_id])
-    # @mission = @etablissement.missions.new
+    @etablissement = Etablissement.find(params[:etablissement_id]) 
+    @mission = @etablissement.missions.new(mission_params)
 
-    @mission = Mission.new(mission_params)
+    @mission.benevole = current_benevole
     #@etablissement = Etablissement.find(params[:id])
 
     respond_to do |format|
@@ -63,7 +58,7 @@ class MissionsController < ApplicationController
       if @mission.save
         MissionMailer.new_mission_b(Mission.last).deliver_now
         MissionMailer.new_mission_e(Mission.last).deliver_now
-        format.html { redirect_to @mission, notice: 'Mission was successfully created.' }
+        format.html { redirect_to @etablissement, notice: 'Mission was successfully created.' }
         format.json { render :show, status: :created, location: @mission }
       else
         format.html { render :new }

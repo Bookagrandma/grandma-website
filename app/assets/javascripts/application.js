@@ -19,4 +19,5 @@
 //= require jquery-ui
 //= require autocomplete-rails
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
 
