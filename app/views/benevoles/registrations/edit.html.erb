@@ -28,7 +28,7 @@
         </div>
 
         <div>
-          <%= f.label :firstname %><br />
+          <%= f.label :prénom %><br />
           <%= f.text_field :firstname%>
         </div>
         </div>
@@ -36,11 +36,11 @@
         <div class="form-line">
           <!-- Last name & bday -->
           <div>
-            <%= f.label :lastname %><br />
+            <%= f.label :nom %><br />
             <%= f.text_field :lastname%>
           </div>
           <div>
-            <%= f.label :birthday %><br />
+            <%= f.label :date_de_naissance %><br />
             <%= f.text_field :birthday%>
           </div>
         </div>
@@ -48,11 +48,11 @@
         <div class="form-line">
           <!-- Adresse & zip -->
           <div>
-            <%= f.label :address %><br />
+            <%= f.label :addresse %><br />
             <%= f.text_field :address%>
           </div>
           <div>
-            <%= f.label :zip %><br />
+            <%= f.label :code_postal %><br />
             <%= f.text_field :zip%>
           </div>
       </div>
@@ -60,11 +60,11 @@
       <div class="form-line">
         <!-- City & phone -->
         <div>
-          <%= f.label :city %><br />
+          <%= f.label :ville %><br />
           <%= f.text_field :city%>
         </div>
         <div>
-          <%= f.label :phone %><br />
+          <%= f.label :téléphone %><br />
           <%= f.text_field :phone%>
         </div>
       </div>
@@ -73,11 +73,14 @@
           <%= f.label :motivation %><br />
           <%= f.text_field :motivation%>
         </div>
-        <%= f.input :password, autocomplete: "off", hint: "Ne pas compléter si vous ne souhaitez pas le changer", required: false %>
+        <%= f.label :mot_de_passe %><br />
+          <%= f.password_field :password, autocomplete: "off", hint: "Ne pas compléter si vous ne souhaitez pas le changer", required: false %>
       </div>
       <div class="form-line">
-        <%= f.input :password_confirmation, required: false %>
-        <%= f.input :current_password, hint: "Entrez votre mot de passe pour confirmer les changements", required: true %>
+        <%= f.label :confirmation_mot_de_passe %><br />
+          <%= f.password_field :password_confirmation, required: false %>
+        <%= f.label :mot_de_passe_actuel %><br />
+          <%= f.password_field  :current_password, hint: "Entrez votre mot de passe pour confirmer les changements", required: true %>
       </div>
     </div>
 
@@ -89,8 +92,8 @@
   <h3>Supprimer mon compte <span>:</span></h3>
 
   <p>Vous n'êtes plus interessé par le service ? <br>
-  <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "cancel-links" %></p>
+  <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Certain ?" }, method: :delete, :class => "cancel-links" %></p>
 
-  <%= link_to "Back", :back, :class => "nav-links" %><%= link_to "Voir le profil", benevole_path(id: current_benevole.id), :class => 'edit-info', :style => 'margin-left: 20px;' %>
+  <%= link_to "Retour", :back, :class => "nav-links" %><%= link_to "Voir le profil", benevole_path(id: current_benevole.id), :class => 'edit-info', :style => 'margin-left: 20px;' %>
 
 </div>

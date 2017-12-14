@@ -39,7 +39,7 @@
     </div>
     <div class="id-footer">
       <% if benevole_signed_in? && @benevole.id == current_benevole.id%>
-      <%= link_to "Edit Account", edit_benevole_registration_path, :class => 'edit-info' %>
+      <%= link_to "Modifier mes informations", edit_benevole_registration_path, :class => 'edit-info' %>
       <% end %>
     </div>
   </div>
@@ -54,8 +54,8 @@
        <p><%= mission.place %></p>
        <p><%= mission.appointment %></p>
        <p><%= mission.etablissement_id %></p>
-       <%= link_to 'Edit', edit_mission_path(mission), :class => 'edit-links' %>
-       <%= link_to 'Destroy', mission, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'cancel-links' %>
+       <%= link_to 'Modifier', edit_mission_path(mission), :class => 'edit-links' %>
+       <%= link_to 'Supprimer', mission, method: :delete, data: { confirm: 'Certains ?' }, :class => 'cancel-links' %>
    </div><br>
        <% else %>
      <% end %>
