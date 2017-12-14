@@ -8,7 +8,8 @@ class BenevolesController < ApplicationController
 	end
 
 	def show
-		@benevole = Benevole.find(params[:id]) 
+		@benevole = Benevole.find(params[:id])
+		@missions = Mission.all
 	end
 
 	def index
@@ -26,7 +27,7 @@ class BenevolesController < ApplicationController
         # format.json { render json: @benevole.errors, status: :unprocessable_entity }
       end
       end
-    end 
+    end
 
   private
       # Use callbacks to share common setup or constraints between actions.
@@ -42,10 +43,5 @@ class BenevolesController < ApplicationController
       #Never trust parameters from the scary internet, only allow the white list through.
       def benevole_params
         params.require(:benevole).permit(:firstname, :lastname, :birthday, :address, :zip, :city, :gender, :avatar, :email, :phone, :motivation)
-      end	
+      end
     end
-
-
-
-
-

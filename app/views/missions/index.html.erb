@@ -1,41 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Missions</h1>
+<%= render partial: "layouts/navbar" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Body</th>
-      <th>Place</th>
-      <th>Appointment</th>
-      <th>Benevole_id</th>
-      <th>Etablissement_id</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="page-container index-missions">
 
-  <tbody>
+  <h2>Liste de vos propositions de bénévolats</h2>
+  <div class="decor-line"></div>
     <% @missions.each do |mission| %>
-      <tr>
-        <% if benevole_signed_in? && current_benevole.id == mission.benevole_id %>
-        <td><%= mission.title %></td>
-        <td><%= mission.body %></td>
-        <td><%= mission.place %></td>
-        <td><%= mission.appointment %></td>
-        <td><%= mission.benevole_id %></td>
-        <td><%= mission.etablissement_id %></td>
-        <td><%= link_to 'Show', mission %></td>
-        <td><%= link_to 'Edit', edit_mission_path(mission) %></td>
-        <td><%= link_to 'Destroy', mission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-
-      </tr> <%else%>
+    <% if benevole_signed_in? && current_benevole.id == mission.benevole_id %>
+    <div class="profile-card mission-card">
+        <h4><%= mission.title %></h4>
+        <p class="comment-links">Mission proposée par <%= link_to mission.benevole.firstname,  benevole_path(mission.benevole_id) %> pour <%= link_to mission.etablissement.name, etablissement_path(mission.etablissement_id) %></p>
+        <p><%= mission.body %></p>
+        <p><%= mission.place %></p>
+        <p><%= mission.appointment %></p>
+        <p><%= mission.etablissement_id %></p>
+        <%= link_to 'Edit', edit_mission_path(mission), :class => 'edit-links' %>
+        <%= link_to 'Destroy', mission, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'cancel-links' %>
+    </div><br>
+        <% else %>
+        </div><br>
       <% end %>
+    <% end %>
+    <%= link_to 'Revenir à l\'accueil', root_path, :class => 'nav-links' %>
 
-    <% end %> 
-    <td><%= link_to 'Revenir à l\'accueil', root_path %></td>
-  </tbody>
-</table>
-
-<br>
+</div>
