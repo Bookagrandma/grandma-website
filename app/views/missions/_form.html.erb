@@ -1,4 +1,4 @@
-<%= form_for :mission, :url => etablissement_missions_path(@etablissement) do |f| %>
+
 
 <% if mission.errors.any? %>    
      <div id="error_explanation">    
@@ -22,26 +22,18 @@
    </div>    
      
    <div class="field">       
-     <%= f.hidden_field :place, :value => (@etablissement.address + " " + @etablissement.zip + " " + @etablissement.city) %>
-     Adresse : <%= (" " + @etablissement.address + " " + @etablissement.zip + " " + @etablissement.city) %>   
+     Adresse : <%= (" " + @mission.etablissement.address + " " + @mission.etablissement.zip + " " + @mission.etablissement.city) %>   
    </div>    
      
-   <div class="field">   
-     <%= f.label :appointment %>    
-     <%= f.text_field :appointment , id: :mission_appointment %>   
+   <div class="field">      
+     Rendez-vous <%=f.text_field :appointment, "data-provide" => 'datepicker', "data-date-format" => "yyyy-mm-dd"%>   
    </div> 
-     
- <div class="field">  
-    <%= f.hidden_field :benevole_id, :value => @benevole.id %> 
-     
-   </div>        
+            
      
    <div class="field"> 
-   NEW MISSION for <%= @etablissement.name %>      
-   <%= f.hidden_field :etablissement_id, id: :mission_etablissement_id %> 
+   NEW MISSION for <%= @mission.etablissement.name %>      
    </div>
      
    <div class="actions">   
      <%= f.submit %>    
-   </div>    
- <% end %> 
+   </div>     

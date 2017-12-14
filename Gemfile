@@ -28,8 +28,8 @@ gem 'rails-jquery-autocomplete'
 gem 'jquery-ui-rails'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'haml', '~> 5.0', '>= 5.0.4'
-gem 'simple-form-datepicker', '~> 0.1.3'
 gem "figaro"
+gem "bootstrap-datepicker-rails"
 
 
 group :development, :test do
