@@ -12,38 +12,34 @@
      </div>    
    <% end %> 
 
-<div class="field">   
-     <%= f.label :title %>    
-     <%= f.text_field :title, id: :mission_title %>   
+
+<div class="field">       
+     Title: <%= f.text_field :title %>   
    </div>    
      
-   <div class="field">   
-     <%= f.label :body %>   
-     <%= f.text_field :body, id: :mission_body %>    
+   <div class="field">     
+     Body: <%= f.text_area :body %>    
    </div>    
      
-   <div class="field">   
-     <%= f.label :place %>    
-     <%= f.text_field :place, id: :mission_place %>    
+   <div class="field">       
+     <%= f.hidden_field :place, :value => (@etablissement.address + " " + @etablissement.zip + " " + @etablissement.city) %>
+     Adresse : <%= (" " + @etablissement.address + " " + @etablissement.zip + " " + @etablissement.city) %>   
    </div>    
      
    <div class="field">   
      <%= f.label :appointment %>    
      <%= f.text_field :appointment , id: :mission_appointment %>   
-   </div   
+   </div> 
      
- <div class="field">   
-     <%= f.label :benevole_id %>    
-     <%= f.text_field :benevole_id, id: :mission_benevole_id %>    
+ <div class="field">  
+    <%= f.hidden_field :benevole_id, :value => @benevole.id %> 
+     
    </div>        
      
-   <div class="field">   
-     <%= f.label :etablissement_id %>   
-     <%= f.text_field :etablissement_id, id: :mission_etablissement_id %>     
-  
-   NEW MISSION for <%= @etablissement.name %> 
-
-
+   <div class="field"> 
+   NEW MISSION for <%= @etablissement.name %>      
+   <%= f.hidden_field :etablissement_id, id: :mission_etablissement_id %> 
+   </div>
      
    <div class="actions">   
      <%= f.submit %>    
