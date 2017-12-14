@@ -51,10 +51,11 @@
         <%= link_to 'Destroy', mission, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'cancel-links' %>
         <% else %>
         <% end %>
+      </div>
 
 
     <% end %>
-    </div>
+
     <%= link_to 'Revenir à l\'accueil', root_path, :class=> 'nav-links' %>
     <%= link_to 'Retour liste à la liste des établissements', etablissements_path, :class => 'nav-links' %>
     <% if etablissement_signed_in? && current_etablissement.id == mission.etablissement_id %>
