@@ -1,6 +1,6 @@
 class Mission < ApplicationRecord
 
-	belongs_to :benevole
+	belongs_to :benevole, optional: true
 	belongs_to :etablissement
 
 	before_create  do 

@@ -30,16 +30,41 @@
       </div>
   </div>
 
-  <h3>Les missions de <span><%= @etablissement.name %></span></h3>
+  <h3>Les missions de <span><%= @etablissement.name %> proposées par les bénévoles ou l'établissement, si non précisé</span></h3>
   <%= link_to 'Je propose une nouvelle mission', new_etablissement_mission_path(@etablissement), :class => 'edit-info' %>
       <% @missions.each do |mission| %>
       <div class="profile-card mission-card">
       <h4><%= mission.title %></h4>
-      <p class="comment-links">Mission proposée par <%= link_to mission.benevole.firstname,  benevole_path(mission.benevole_id) %></p>
+
+    <% if benevole_signed_in? && current_benevole.id == mission.benevole_id %>
+        <p class="comment-links">Mission proposée par <%= link_to 'moi',  benevole_path(mission.benevole_id) %> </p>
+    <% else %>
+    <% end %>
+
+
+    <% if benevole_signed_in? && current_benevole.id != mission.benevole_id && mission.benevole_id != nil %>
+        <p class="comment-links">Mission proposée par <%= link_to mission.benevole.firstname,  benevole_path(mission.benevole_id) %> </p>
+    <% else %> 
+    <% end %>
+
+
+        
+
+
+
+    <% if etablissement_signed_in? && current_etablissement.id == mission.etablissement_id && mission.benevole_id != nil %> 
+        <p class="comment-links">Mission proposée par <%= link_to mission.benevole.firstname, benevole_path(mission.benevole_id)%> </p>
+    <% else %>
+    <% end %>
+
+
+
+
+
       <p><%= mission.body %></p>
       <p><%= mission.appointment %></p>
-      <p class="comment-links">Mission pour <%= link_to mission.etablissement.name, etablissement_path(mission.etablissement_id) %></p>
-        <% if benevole_signed_in? && current_benevole.id == mission.benevole_id %>
+     
+        <% if benevole_signed_in? && current_benevole.id == mission.benevole_id || etablissement_signed_in? && current_etablissement.id == mission.etablissement_id  %>
           <%= link_to 'Modifier', edit_mission_path(mission), :class => 'edit-links' %>
           <%= link_to 'Supprimer', mission, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'cancel-links' %>
         </div><br>
