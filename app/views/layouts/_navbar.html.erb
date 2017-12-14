@@ -5,8 +5,7 @@
     </div>
     <ul class="nav navbar-nav">
       <% if benevole_signed_in? == false && etablissement_signed_in? == false %>
-        <li><%= link_to "Home", root_path %></li>
-        <li><a href="missions#index">Les Missions</a></li>
+        <li><a href="https://app.powerbi.com/view?r=eyJrIjoiNWVkZjBjODItNjY4NC00ZDk1LWFiNGMtNzY0N2Y1MGI4MzM4IiwidCI6ImVhODQ3YjMxLWRjNzMtNGU2NC1iOGU5LTU0Y2IyMzc2ODhmMyIsImMiOjh9"> Les EHPADS </a></li>
         <li class="button-right">Se connecter :</li>
         <li><%= link_to new_benevole_session_path do %><i class="fa fa-user-circle-o" aria-hidden="true"></i><% end %></li>
         <li><%= link_to new_etablissement_session_path do %><i class="fa fa-hospital-o" aria-hidden="true"></i><% end %></li>

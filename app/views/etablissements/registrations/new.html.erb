@@ -2,7 +2,7 @@
 
 <div class="page-container">
 
-  <h2>Sign up</h2>
+  <h2>S'enregistrer</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
@@ -10,45 +10,48 @@
     <div class="form-inputs">
         <div class="form-line">
           <%= f.input :email, required: true, autofocus: true %>
-          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-        </div>
 
-
-      <div class="form-line">
-        <%= f.input :password_confirmation, required: true %>
-        <div>
-          <%= f.label :category %><br />
-          <%= f.text_field :category%>
-        </div>
-      </div>
-      <div class="form-line">
-        <div>
-          <%= f.label :name %><br />
+          <%= f.label :nom_établissement %><br />
           <%= f.text_field :name%>
         </div>
+
+
+      <div class="form-line">
+        <%= f.label :mot_de_passe %>
+          <%= f.password_field :password, required: true, hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length) %>
         <div>
-          <%= f.label :address %><br />
-          <%= f.text_field :address%>
+         <%= f.label :confirmation_mot_de_passe %>
+        <%= f.password_field :password_confirmation, required: true %>
         </div>
       </div>
       <div class="form-line">
         <div>
-          <%= f.label :zip %><br />
-          <%= f.text_field :zip%>
+           <%= f.label :addresse %><br />
+          <%= f.text_field :address%>
         </div>
         <div>
-          <%= f.label :phone %><br />
+          <%= f.label :code_postal %><br />
+          <%= f.text_field :zip%>
+         
+        </div>
+      </div>
+      <div class="form-line">
+        <div>
+           <%= f.label :ville %><br />
+        <%= f.text_field :city%>
+        </div>
+        <div>
+          <%= f.label :téléphone %><br />
           <%= f.text_field :phone%>
         </div>
       </div>
       <div>
-        <%= f.label :city %><br />
-        <%= f.text_field :city%>
+       
       </div>
     </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Sign up" %>
+          <%= f.button :submit, "S'enregistrer" %>
         </div>
   <% end %>
 

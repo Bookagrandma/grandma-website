@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <ul>
-      <% if benevole_signed_in? %>
+      <% if benevole_signed_in? || etablissement_signed_in? %>
       <p>
   <strong>Title:</strong>
   <%= @mission.title %>
