@@ -1,7 +1,7 @@
   class MissionsController < ApplicationController
 
   before_action :set_mission, only: [:show, :edit, :update, :destroy]
-  before_action :find_etablissement
+  #before_action :find_etablissement
 
   # GET /missions
   # GET /missions.json
@@ -30,10 +30,11 @@
 
 
   def create
-    @etablissement = Etablissement.find(params[:id])
-    @mission = @etablissement.missions.new(params[:mission])
-    @mission = current_benevole.missions.new(mission_params)
     @mission.benevole_id = current_benevole.id
+    @mission = current_benevole.missions.new(mission_params)
+
+    @etablissement = Etablissement.find(params[:id])
+    @mission = @etablissement.missions.new(mission_params)
 
     respond_to do |format|
     @mission.save
