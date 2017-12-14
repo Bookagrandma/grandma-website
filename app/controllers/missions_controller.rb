@@ -1,6 +1,7 @@
 class MissionsController < ApplicationController
 
   before_action :set_mission, only: [:show, :edit, :update, :destroy]
+  #before_action :find_etablissement
 
   # GET /missions
   # GET /missions.json
@@ -17,6 +18,26 @@ class MissionsController < ApplicationController
   # GET /missions/new
   def new
     @mission = Mission.new
+    @mission = current_benevole.missions.new
+    @etablissement = Etablissement.first
+
+    
+
+    #@mission = Etablissement.where(etablissement_id: @etablissement)
+
+    #@etablissement = Etablissement.where(etablissement_id: @etablissement)
+    #@mission = @etablissement
+   #@etablissement = Etablissement.find(params[:id])
+    #@mission = Mission.new
+    #@missions = Mission.where(etablissement_id: @etablissement).order("created_at DESC")
+
+#@mission = Mission.new
+ #   #@etablissement = Etablissement.find(params[:id])
+    
+  #  #@etablissement = Etablissement.where(etablissement_id: @etablissement)
+
+
+
   end
 
   # GET /missions/1/edit
@@ -25,9 +46,19 @@ class MissionsController < ApplicationController
 
   # POST /missions
   # POST /missions.json
+
+
   def create
+    #@etablissement = Etablissement.find(params[:id])
+    #@mission = @etablissement.missions.new(params[:mission])
+    #@mission = current_benevole.missions.new(mission_params)
+    #@mission.benevole_id = current_benevole.id
+
     @mission = Mission.new(mission_params)
+    #@etablissement = Etablissement.find(params[:id])
+
     respond_to do |format|
+      @mission.save
       if @mission.save
         MissionMailer.new_mission_b(Mission.last).deliver_now
         MissionMailer.new_mission_e(Mission.last).deliver_now
@@ -76,10 +107,16 @@ class MissionsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def mission_params
-    if benevole_signed_in?
-      params.require(:mission).permit(:title, :body, :place, :appointment, :benevole_id, :etablissement_id)
-    else etablissement_signed_in?
-      params.require(:mission).permit(:title, :body, :place, :appointment, :etablissement_id)
-    end
+    params.require(:mission).permit(:title, :body, :place, :appointment, :benevole_id, :etablissement_id)
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_etablissement
+    @etablissement = Etablissement.find(params[:id])
+  end
+
+  #Never trust parameters from the scary internet, only allow the white list through.
+  def etablissement_params
+    params.require(:etablissement).permit(:name, :address, :zip, :city, :type, :email, :phone, :avatar, :description)
   end
 end

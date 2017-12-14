@@ -13,7 +13,7 @@
      
    <div class="field">   
      <%= form.label :title %>    
-     <%= form.text_field :title, id: :mission_title %>   
+     <%= form.text_area :title, id: :mission_title %>   
    </div>    
      
    <div class="field">   
@@ -38,9 +38,12 @@
      
    <div class="field">   
      <%= form.label :etablissement_id %>   
-     <%= form.text_area :etablissement_id, id: :mission_etablissement_id %>    
+     <%= form.text_area :etablissement_id, id: :mission_etablissement_id %>     
    </div>    
-     
+
+    NEW MISSION for id <%#= @etablissement.id %> 
+
+
      
    <div class="actions">   
      <%= form.submit %>    

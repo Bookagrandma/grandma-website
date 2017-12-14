@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   get "/etablissements", to: "etablissements#index"
- 
 
 
   devise_for :benevoles, controllers: {
@@ -20,9 +19,17 @@ Rails.application.routes.draw do
   }
 
   resources :missions
-  resources :benevoles 
-  resources :etablissements 
+  resources :benevoles
 
+
+  resources :etablissements do
+    resources :missions
+  end
+
+
+  resources :missions do
+    resources :etablissements
+  end
 
   resources :etablissements do
     get :autocomplete_city_dept_name, :on => :collection

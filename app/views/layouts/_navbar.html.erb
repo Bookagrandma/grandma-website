@@ -12,12 +12,13 @@
         <li><%= link_to new_etablissement_session_path do %><i class="fa fa-hospital-o" aria-hidden="true"></i><% end %></li>
       <% elsif benevole_signed_in? %>
         <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Créer une mission", new_mission_path %></li>
+        <li><%= link_to "Vos missions", missions_path %></li>
+        <li><%= link_to "Trouver un établissement", etablissements_path %></li>
         <li><%= link_to "Votre profil", benevole_path(id: current_benevole.id) %></li>
         <li class="button-right"><%= link_to "Sign out", destroy_benevole_session_path, method: :delete %></li>
       <% elsif etablissement_signed_in? %>
         <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Créer une mission", new_mission_path %></li>
+        <li><%= link_to "Vos missions", missions_path %></li>
         <li><%= link_to "Votre profil", etablissement_path(id: current_etablissement.id) %></li>
         <li class="button-right"><%= link_to "Sign out", destroy_etablissement_session_path, method: :delete %></li>
       <% end %>

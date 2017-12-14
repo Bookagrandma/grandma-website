@@ -27,12 +27,14 @@
 
         <h4>Phone</h4>
         <p><%= @etablissement.phone%></p>
+
+    <td><%= link_to 'Revenir à l\'accueil', root_path %></td>
       </div>
   </div>
 
 
-  <h4>NEW MISSION</h4>
-  <%= link_to 'New Mission', new_mission_path %>
+  <h3>NEW MISSION for id <%= @etablissement.id %></h3>
+  <%= link_to 'Proposer ses services', new_etablissement_mission_path(@etablissement) %>
 
   <br>
 
@@ -42,6 +44,26 @@
                 method: :delete,
                 data: { confirm: 'Etes vous certain?' } %>
   </table>
+
+
+         <% @missions.each do |mission| %>
+      <tr>
+
+        <td><%= mission.title %></td>
+        <td><%= mission.body %></td>
+        <td><%= mission.place %></td>
+        <td><%= mission.appointment %></td>
+        <td><%= mission.benevole_id %></td>
+        <td><%= mission.etablissement_id %></td>
+        <td><%= link_to 'Show', mission %></td>
+        <td><%= link_to 'Edit', edit_mission_path(mission) %></td>
+        <td><%= link_to 'Destroy', mission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+      </tr> <br>
+
+    <% end %>
+
 
 </div>
 
