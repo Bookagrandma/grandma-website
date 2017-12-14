@@ -26,6 +26,7 @@ $black: #272624;
 $white: #E9ECE6;
 $red: #fa625f;
 $purple: #c42ef1;
+$grey: #8c8c8c;
 
 // FONTS
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700,900|Open+Sans:300,400,400i,700');
@@ -46,6 +47,7 @@ $purple: #c42ef1;
   padding: 3px 10px;
   border-radius: 2px;
   display: inline-block;
+  margin-right: 10px;
 }
 .nav-links:hover {
   color: $black;
@@ -66,11 +68,30 @@ $purple: #c42ef1;
   border-radius: 2px;
   display: inline-block;
   margin-top: 10px;
+  margin-right: 15px;
   transition: all ease-in .2s;
 }
 .cancel-links:hover {
   color: $white;
   background-color: $red;
+  text-decoration: none;
+}
+
+.edit-links {
+  font-size: 1.3em;
+  font-family: 'Nunito', 'Helvetica', sans-serif;
+  border: 2px solid $blue;
+  color: $blue;
+  padding: 3px 10px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-right: 20px;
+  margin-top: 10px;
+  transition: all ease-in .2s;
+}
+.edit-links:hover {
+  color: $white;
+  background-color: $blue;
   text-decoration: none;
 }
 
@@ -291,10 +312,27 @@ nav {
 // PROFIL HOPITAL
 .hopital-profile {
   background-color: rgba(233, 236, 230, 0.45);
+  span {
+    color: $blue;
+  }
   .profile-card-container {
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 1fr 1fr;
+  }
+  .edit-info {
+    margin-left: 20px;
+    font-size: .9em;
+    line-height: 55px;
+  }
+  h3 {
+    float: left;
+    margin-left: 30px;
+  }
+  h4 {
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    font-weight: 700;
+    font-size: 1.3em;
   }
   p {
     font-family: 'Open Sans', 'Helvetica', sans-serif;
@@ -317,6 +355,24 @@ nav {
 }
 .profile-card:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.mission-card {
+  p {
+    font-size: 1em;
+  }
+  .comment-links {
+    font-size: .95em;
+    color: $grey;
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    font-weight: 700;
+    a {
+      color: $blue;
+    }
+    a:hover {
+      text-decoration: none;
+      opacity: .6;
+    }
+  }
 }
 
 //PROFIL BENEVOLE
