@@ -1,5 +1,6 @@
-<%= form_with(model: mission, local: true) do |form| %>    
-   <% if mission.errors.any? %>    
+<%= form_for :mission, :url => etablissement_missions_path(@etablissement) do |f| %>
+
+<% if mission.errors.any? %>    
      <div id="error_explanation">    
        <h2><%= pluralize(mission.errors.count, "error") %> prohibited this mission from being saved:</h2>    
      
@@ -9,43 +10,42 @@
        <% end %>   
        </ul>   
      </div>    
-   <% end %>   
-     
-   <div class="field">   
-     <%= form.label :title %>    
-     <%= form.text_area :title, id: :mission_title %>   
+   <% end %> 
+
+<div class="field">   
+     <%= f.label :title %>    
+     <%= f.text_field :title, id: :mission_title %>   
    </div>    
      
    <div class="field">   
-     <%= form.label :body %>   
-     <%= form.text_area :body, id: :mission_body %>    
+     <%= f.label :body %>   
+     <%= f.text_field :body, id: :mission_body %>    
    </div>    
      
    <div class="field">   
-     <%= form.label :place %>    
-     <%= form.text_area :place, id: :mission_place %>    
+     <%= f.label :place %>    
+     <%= f.text_field :place, id: :mission_place %>    
    </div>    
      
    <div class="field">   
-     <%= form.label :appointment %>    
-     <%= form.text_area :appointment , id: :mission_appointment %>   
+     <%= f.label :appointment %>    
+     <%= f.text_field :appointment , id: :mission_appointment %>   
    </div   
      
  <div class="field">   
-     <%= form.label :benevole_id %>    
-     <%= form.text_area :benevole_id, id: :mission_benevole_id %>    
+     <%= f.label :benevole_id %>    
+     <%= f.text_field :benevole_id, id: :mission_benevole_id %>    
    </div>        
      
    <div class="field">   
-     <%= form.label :etablissement_id %>   
-     <%= form.text_area :etablissement_id, id: :mission_etablissement_id %>     
-   </div>    
-
-    NEW MISSION for id <%#= @etablissement.id %> 
+     <%= f.label :etablissement_id %>   
+     <%= f.text_field :etablissement_id, id: :mission_etablissement_id %>     
+  
+   NEW MISSION for <%= @etablissement.name %> 
 
 
      
    <div class="actions">   
-     <%= form.submit %>    
+     <%= f.submit %>    
    </div>    
  <% end %> 

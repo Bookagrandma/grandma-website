@@ -2,7 +2,7 @@
 
 <div class="page-container hopital-profile">
 
-  <h2>Bienvenue sur la page de <%= @etablissement.name%></h2>
+  <h2>Bienvenue sur la page de <span><%= @etablissement.name%></span></h2>
   <div class="decor-line"></div>
     <div class="profile-card-container">
       <div class="profile-card">
@@ -27,44 +27,42 @@
 
         <h4>Phone</h4>
         <p><%= @etablissement.phone%></p>
-
-    <td><%= link_to 'Revenir à l\'accueil', root_path %></td>
       </div>
   </div>
 
 
-  <h3>NEW MISSION for id <%= @etablissement.id %></h3>
-  <%= link_to 'Proposer ses services', new_etablissement_mission_path(@etablissement) %>
+  <h3>Les missions de <span><%= @etablissement.name %></span></h3>
+  <%= link_to 'Je propose une nouvelle mission', new_etablissement_mission_path(@etablissement), :class => 'edit-info' %>
 
   <br>
 
-
-  <%= link_to 'Retour liste etablissemet', etablissements_path %> |
-   <%= link_to 'Supprimer l\'établissement', @etablissement,
-                method: :delete,
-                data: { confirm: 'Etes vous certain?' } %>
-  </table>
-
+        <div class="profile-card mission-card">
 
          <% @missions.each do |mission| %>
-      <tr>
 
-        <td><%= mission.title %></td>
-        <td><%= mission.body %></td>
-        <td><%= mission.place %></td>
-        <td><%= mission.appointment %></td>
-        <td><%= mission.benevole_id %></td>
-        <td><%= mission.etablissement_id %></td>
-        <td><%= link_to 'Show', mission %></td>
-        <td><%= link_to 'Edit', edit_mission_path(mission) %></td>
-        <td><%= link_to 'Destroy', mission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <h4><%= mission.title %></h4>
+        <p class="comment-links">Mission proposée par <%= link_to mission.benevole.firstname,  benevole_path(mission.benevole_id) %></p>
 
+        <p><%= mission.body %></p>
+        <%= mission.appointment %>
+        <p class="comment-links">Mission pour <%= link_to mission.etablissement.name, etablissement_path(mission.etablissement_id) %></p>
+        <% if benevole_signed_in? && current_benevole.id == mission.benevole_id %>
+        <%= link_to 'Edit', edit_mission_path(mission), :class => 'edit-links' %>
+        <%= link_to 'Destroy', mission, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'cancel-links' %>
+        <% else %>
+        <% end %>
 
-      </tr> <br>
 
     <% end %>
-
-
+    </div>
+    <%= link_to 'Revenir à l\'accueil', root_path, :class=> 'nav-links' %>
+    <%= link_to 'Retour liste à la liste des établissements', etablissements_path, :class => 'nav-links' %>
+    <% if etablissement_signed_in? && current_etablissement.id == mission.etablissement_id %>
+     <%= link_to 'Supprimer l\'établissement', @etablissement,
+                  method: :delete,
+                  data: { confirm: 'Etes vous certain?' }, :class => 'nav-links' %>
+    <% else %>
+    <% end %>
 </div>
 
 <!--

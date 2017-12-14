@@ -18,12 +18,10 @@ class MissionsController < ApplicationController
   # GET /missions/new
   def new
     @mission = Mission.new
-    @mission = current_benevole.missions.new
-    @etablissement = Etablissement.first
-
+    @etablissement = Etablissement.find(params[:etablissement_id])
+    @benevole = current_benevole 
+    @mission = @etablissement.missions.new
     
-
-    #@mission = Etablissement.where(etablissement_id: @etablissement)
 
     #@etablissement = Etablissement.where(etablissement_id: @etablissement)
     #@mission = @etablissement
@@ -53,6 +51,9 @@ class MissionsController < ApplicationController
     #@mission = @etablissement.missions.new(params[:mission])
     #@mission = current_benevole.missions.new(mission_params)
     #@mission.benevole_id = current_benevole.id
+
+    # @etablissement = Etablissement.find(params[:etablissement_id])
+    # @mission = @etablissement.missions.new
 
     @mission = Mission.new(mission_params)
     #@etablissement = Etablissement.find(params[:id])
