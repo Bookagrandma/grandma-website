@@ -21,7 +21,7 @@ class EtablissementsController < ApplicationController
 
   def show
     @etablissement = Etablissement.find(params[:id])
-    @mission = Mission.new
+   #@mission = Mission.new
     @missions = Mission.where(etablissement_id: @etablissement).order("created_at DESC")
 
   end
