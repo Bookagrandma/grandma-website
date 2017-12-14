@@ -33,6 +33,23 @@
       </tr> <%else%>
       <% end %>
 
+        <% if etablissement_signed_in? && current_etablissement.id == mission.etablissement_id %>
+        <td><%= mission.title %></td>
+        <td><%= mission.body %></td>
+        <td><%= mission.place %></td>
+        <td><%= mission.appointment %></td>
+        <td><%= mission.benevole_id %></td>
+        <td><%= mission.etablissement_id %></td>
+        <td><%= link_to 'Show', mission %></td>
+        <td><%= link_to 'Edit', edit_mission_path(mission) %></td>
+        <td><%= link_to 'Destroy', mission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+      </tr> <%else%>
+      <% end %>
+
+
+
     <% end %> 
     <td><%= link_to 'Revenir à l\'accueil', root_path %></td>
   </tbody>
