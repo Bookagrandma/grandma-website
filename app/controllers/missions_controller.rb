@@ -91,9 +91,9 @@ class MissionsController < ApplicationController
   # DELETE /missions/1
   # DELETE /missions/1.json
   def destroy
+    MissionMailer.destroy_mission_b(Mission.find(params[:id])).deliver_now
+    MissionMailer.destroy_mission_e(Mission.find(params[:id])).deliver_now
     @mission.destroy
-    MissionMailer.destroy_mission_b(Mission.last).deliver_now
-    MissionMailer.destroy_mission_e(Mission.last).deliver_now
     respond_to do |format|
       format.html { redirect_to missions_url, notice: 'Mission was successfully destroyed.' }
       format.json { head :no_content }
