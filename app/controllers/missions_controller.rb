@@ -19,6 +19,7 @@
   def new
    @mission = Mission.new
    @mission = current_benevole.missions.new
+   
  end
 
   # GET /missions/1/edit
@@ -30,11 +31,12 @@
 
 
   def create
-    @mission.benevole_id = current_benevole.id
-    @mission = current_benevole.missions.new(mission_params)
+    #@etablissement = Etablissement.find(params[:id])
+    #@mission = @etablissement.missions.new(params[:mission])
+    #@mission = current_benevole.missions.new(mission_params)
+    #@mission.benevole_id = current_benevole.id
 
-    @etablissement = Etablissement.find(params[:id])
-    @mission = @etablissement.missions.new(mission_params)
+    @mission = Mission.new(mission_params)
 
     respond_to do |format|
     @mission.save
