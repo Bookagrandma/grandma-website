@@ -1,6 +1,8 @@
 class EtablissementsController < ApplicationController
 
   before_action :authenticate_etablissement!, only: [:edit, :update]
+  before_action :set_etablissement
+
 
   def index
     if params[:search]
@@ -13,7 +15,6 @@ class EtablissementsController < ApplicationController
 
   def show
     @etablissement = Etablissement.find(params[:id])
-   #@mission = Mission.new
     @missions = Mission.where(etablissement_id: @etablissement).order("created_at DESC")
 
   end
@@ -21,11 +22,11 @@ class EtablissementsController < ApplicationController
   def update
     respond_to do |format|
       if @etablissement.update(etablissement_params)
-        format.html { redirect_to @etablissement, notice: 'etablissement was successfully updated.' }
+        format.html { redirect_to @etablissement, notice: 'Votre profil établissement a été modifié avec succès' }
         # format.json { render :show, status: :ok, location: @etablissement }
       else
         format.html { render :edit }
-        flash.new[:alert] = "Something went wrong. Please try again"
+        flash.new[:alert] = "Une erreur s'est produite. Veuillez rééssayer s'il vous plaît"
 
         # format.json { render json: @etablissement.errors, status: :unprocessable_entity }
       end
