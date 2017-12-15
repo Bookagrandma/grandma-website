@@ -10,4 +10,4 @@ Détail : <%= @mission.body %>
 Lieu : <%= @mission.place %>
 Temps disponible : <%= @mission.appointment %>
 
-Pour voir, modifier ou supprimer votre proposition, rdv sur cette page : <%= missions_url(@benevole.missions) %>
+Pour voir, modifier ou supprimer votre proposition, rdv sur cette page : <%= link_to "BookaGrandma" missions_url(@benevole.missions) %>
