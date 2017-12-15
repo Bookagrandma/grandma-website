@@ -42,10 +42,11 @@
           <p><%= @etablissement.description %></p>
         <% end %>
       </div>
+    </div>
       <div class="id-footer">
       <% if etablissement_signed_in? && @etablissement.id == current_etablissement.id%>
-      <%= link_to "Modifier mes informations", edit_etablissement_registration_path, :class => 'edit-info' %>
-      <% end %>
+      <%= link_to "Modifier mes informations", edit_etablissement_registration_path, :class => 'edit-info' %> <% else %>
+      <% end %> 
     </div>
   </div>
   </div>
@@ -115,7 +116,7 @@
 
   <% if etablissement_signed_in? && current_etablissement.id == mission.etablissement_id && mission.benevole_id == nil %>
           <%= link_to 'Modifier', edit_mission_path(mission), :class => 'edit-links' %>
-          <%= link_to 'Supprimer', mission, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'cancel-links' %>
+          <%= link_to 'Supprimer', mission, method: :delete, data: { confirm: 'Certain?' }, :class => 'cancel-links' %>
         <% else %>
        
       <% end %>
@@ -126,7 +127,7 @@
   <%= link_to 'Revenir à l\'accueil', root_path, :class=> 'nav-links' %>
   <%= link_to 'Retour liste à la liste des établissements', etablissements_path, :class => 'nav-links' %>
     <% if etablissement_signed_in? && current_etablissement.id == @etablissement %>
-     <%= link_to 'Supprimer l\'établissement', @etablissement, method: :delete, data: { confirm: 'Etes vous certain?' }, :class => 'nav-links' %>
+     <%= link_to 'Supprimer l\'établissement', @etablissement, method: :delete, data: { confirm: 'Certain?' }, :class => 'nav-links' %>
      </div><br>
     <% else %>
     </div><br>

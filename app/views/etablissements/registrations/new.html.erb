@@ -2,58 +2,74 @@
 
 <div class="page-container">
 
-  <h2>S'enregistrer</h2>
+  <h2>S'enregistrer en tant qu'établissement</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
-        <div class="form-line">
-          <%= f.input :email, required: true, autofocus: true %>
-
-          <%= f.label :nom_établissement %><br />
-          <%= f.text_field :name%>
-        </div>
-
-
-      <div class="form-line">
-        <%= f.label :mot_de_passe %>
-          <%= f.password_field :password, required: true, hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length) %>
-        <div>
-         <%= f.label :confirmation_mot_de_passe %>
-        <%= f.password_field :password_confirmation, required: true %>
-        </div>
-      </div>
-      <div class="form-line">
-        <div>
-           <%= f.label :addresse %><br />
-          <%= f.text_field :address%>
-        </div>
-        <div>
-          <%= f.label :code_postal %><br />
-          <%= f.text_field :zip%>
-         
-        </div>
-      </div>
-      <div class="form-line">
-        <div>
-           <%= f.label :ville %><br />
-        <%= f.text_field :city%>
-        </div>
-        <div>
-          <%= f.label :téléphone %><br />
-          <%= f.text_field :phone%>
-        </div>
-      </div>
+    <div class="form-line">
       <div>
-       
+      <%= f.label :email %> obligatoire
+          <%= f.email_field :email, required: true, autofocus: true %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
+</div>
+<div>
+       <%= f.label :addresse %><br />
+        <%= f.text_field :address%>
       </div>
     </div>
+    <div class="form-line">
+      <div>
+          <%= f.label :nom %><br />
+          <%= f.text_field :name%>  
+      </div>
+      <div>
+          <%= f.label :code_postal %><br />
+          <%= f.text_field :zip%>
+      </div>
+    </div>
+
+    <div class="form-line">
+      <div>
+        <%= f.label :ville %><br />
+        <%= f.text_field :city%>
+      </div>
+      <div>
+       <%= f.label :téléphone %><br />
+        <%= f.text_field :phone%>
+      </div>
+    </div>
+
+     <div class="form-line"> 
+      <%= f.label :département %><br />
+        <%= f.text_field :dept %>
+     <%= f.label :description %><br />
+        <%= f.text_field :description%>
+    </div>
+
+    <div class="form-line">
+      <div>
+        <%= f.label :mot_de_passe %> obligatoire<br />
+        <%= f.password_field :password, autocomplete: "off", required: false %>
+      </div>
+
+    </div>
+
+
+         <div> 
+ <%= f.label :confirmation_mot_de_passe %> obligatoire<br />
+        <%= f.password_field  :password_confirmation, required: false %>
+
+      </div>
+
 
         <div class="form-actions">
           <%= f.button :submit, "S'enregistrer" %>
         </div>
-  <% end %>
+  <% end %><br>
 
   <%= render "etablissements/shared/links" %>
 

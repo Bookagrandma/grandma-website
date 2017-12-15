@@ -1,7 +1,7 @@
 class EtablissementsController < ApplicationController
 
   before_action :authenticate_etablissement!, only: [:edit, :update]
-  before_action :set_etablissement
+  
 
 
   def index
@@ -42,6 +42,6 @@ class EtablissementsController < ApplicationController
 
       #Never trust parameters from the scary internet, only allow the white list through.
       def etablissement_params
-        params.require(:etablissement).permit(:name, :address, :zip, :city, :type, :email, :phone, :avatar, :description)
+        params.require(:etablissement).permit(:name, :address, :zip, :city, :dept, :type, :email, :phone, :avatar, :description)
       end
 end
