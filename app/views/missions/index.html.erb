@@ -13,7 +13,7 @@
         <h4><%= mission.title %></h4>
         <p><%= mission.place %></p>
         <p><%= mission.appointment %></p>
-        
+        <!--mission proposé par -->
         <% if benevole_signed_in? && current_benevole.id == mission.benevole_id %>
         <p class="comment-links">Mission proposée pour <%= link_to mission.etablissement.name, etablissement_path(mission.etablissement_id) %></p>
         <% else %> <% end %>
@@ -25,22 +25,22 @@
         <% if etablissement_signed_in? && current_etablissement.id == mission.etablissement_id && mission.benevole_id == nil %> 
         <p class="comment-links">Mission proposée par <%= link_to "vous-même", etablissement_path(mission.etablissement_id)%> </p>
         <% else %> <% end %>
+        <!-- mission modif /delete -->
 
-
-     
         <% if benevole_signed_in? && current_benevole.id == mission.benevole_id  %>
         <%= link_to 'Modifier', edit_mission_path(mission), :class => 'edit-links' %>
         <%= link_to 'Supprimer', mission, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'cancel-links' %>
-    </div><br> <% else %> <% end %>
+            </div><br> <% else %> <% end %>
         
-        <% if etablissement_signed_in? && current_etablissement.id == mission.etablissement_id && mission.benevole_id == nil   %>
+        <% if etablissement_signed_in? && current_etablissement.id == mission.etablissement_id %>
         <%= link_to 'Modifier', edit_mission_path(mission), :class => 'edit-links' %>
         <%= link_to 'Supprimer', mission, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'cancel-links' %>
-    </div><br> <% else %> <% end %>
+         </div><br> <% else %> <% end %>
     
         <% else %>
         <% end %>
-    <% end %>
-    <%= link_to 'Revenir à l\'accueil', root_path, :class => 'nav-links' %>
-</div>
+        <% end %>
+         <%= link_to 'Revenir à l\'accueil', root_path, :class => 'nav-links' %>
+    </div>
+   
 </div>
