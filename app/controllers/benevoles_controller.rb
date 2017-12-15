@@ -18,11 +18,11 @@ class BenevolesController < ApplicationController
 	def update
     respond_to do |format|
       if @benevole.update(benevole_params)
-        format.html { redirect_to @benevole, notice: 'Benevole was successfully updated.' }
+        format.html { redirect_to @benevole, notice: 'Votre profil bénévole a été modifié avec succès' }
         # format.json { render :show, status: :ok, location: @benevole }
       else
         format.html { render :edit }
-        flash.new[:alert] = "Something went wrong. Please try again"
+        flash.new[:alert] = "Une erreur s'est produite. Rééssayez s'il vous plait"
 
         # format.json { render json: @benevole.errors, status: :unprocessable_entity }
       end

@@ -58,7 +58,7 @@ class MissionsController < ApplicationController
       if @mission.save
         MissionMailer.new_mission_b(Mission.last).deliver_now
         MissionMailer.new_mission_e(Mission.last).deliver_now
-        format.html { redirect_to @etablissement, notice: 'Mission was successfully created.' }
+        format.html { redirect_to @etablissement, notice: 'La Proposition a bien été crée.' }
         format.json { render :show, status: :created, location: @mission }
       else
         format.html { render :new }
@@ -74,7 +74,7 @@ class MissionsController < ApplicationController
       if @mission.update(mission_params)
         MissionMailer.update_mission_b(Mission.last).deliver_now
         MissionMailer.update_mission_e(Mission.last).deliver_now
-        format.html { redirect_to @mission, notice: 'Mission was successfully updated.' }
+        format.html { redirect_to @mission.etablissement, notice: 'La Proposition a bien été modifiée.' }
         format.json { render :show, status: :ok, location: @mission }
       else
         format.html { render :edit }
@@ -90,7 +90,7 @@ class MissionsController < ApplicationController
     MissionMailer.destroy_mission_e(Mission.find(params[:id])).deliver_now
     @mission.destroy
     respond_to do |format|
-      format.html { redirect_to missions_url, notice: 'Mission was successfully destroyed.' }
+      format.html { redirect_to @etablissement, notice: 'La Proposition a bien été supprimée' }
       format.json { head :no_content }
     end
   end

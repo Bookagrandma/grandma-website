@@ -1,11 +1,10 @@
 
-<h1>Editing Mission</h1>
+<h1>Modifier ma proposition</h1>
 
 <%= form_for @mission, url: mission_path(@mission), method: :patch  do |form| %>
 <%= render partial: 'form', locals: {f: form, mission: @mission} %>
 <% end %>
 
-
-<%= link_to 'Voir', @mission %> |
+ |
 <%= link_to 'Retour', missions_path %>
 

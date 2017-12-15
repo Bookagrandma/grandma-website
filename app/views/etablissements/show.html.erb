@@ -5,6 +5,11 @@
   <h2>Bienvenue sur la page de <span><%= @etablissement.name%></span></h2>
   <div class="decor-line"></div>
     <div class="profile-card-container">
+      <div class="id-head">
+      <% if @etablissement.avatar? %>
+          <%= image_tag @etablissement.avatar_url, :class => 'avatar' %>
+      <% end %>
+      <div>
       <div class="profile-card">
         <h2><i class="fa fa-map-marker" aria-hidden="true"></i>Localisation</h2>
         <h4>Address</h4>
@@ -28,7 +33,24 @@
         <h4>Phone</h4>
         <p><%= @etablissement.phone%></p>
       </div>
+
+       <div>
+      <h4><i class="fa fa-lightbulb-o" aria-hidden="true"></i>Description</h4>
+        <% if (@etablissement.description == nil)  %>
+          <p><%= render html: "N'oubliez pas de rajouter une petite description" %></p>
+          <% else %>
+          <p><%= @etablissement.description %></p>
+        <% end %>
+      </div>
+      <div class="id-footer">
+      <% if etablissement_signed_in? && @etablissement.id == current_etablissement.id%>
+      <%= link_to "Modifier mes informations", edit_etablissement_registration_path, :class => 'edit-info' %>
+      <% end %>
+    </div>
   </div>
+  </div>
+
+
 
   <h3>Les missions de <span><%= @etablissement.name %> proposées</span></h3>
   <%= link_to 'Je propose une nouvelle mission', new_etablissement_mission_path(@etablissement), :class => 'edit-info' %>
