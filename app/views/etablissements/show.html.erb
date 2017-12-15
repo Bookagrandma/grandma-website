@@ -10,7 +10,13 @@
       <div class="id-head">
       <% if @etablissement.avatar? %>
           <%= image_tag @etablissement.avatar_url, :class => 'avatar' %>
+          <% else %>
+          <img src="http://www.mycolorapp.com/static/profile_images/dummy.png" class="avatar">
       <% end %>
+      <div>
+        <p class="name"><%= @etablissement.name %> </p>
+      </div>
+
  </div>
     <div class="id-main">
       <div>      
@@ -43,8 +49,7 @@
 
 
 
-  <h3>Les missions de <span><%= @etablissement.name %> proposées</span></h3>
-  <%= link_to 'Je propose une nouvelle mission', new_etablissement_mission_path(@etablissement), :class => 'edit-info' %>
+  <h3>Les propositions de <span><%= @etablissement.name %> </span> <%= link_to 'Je propose une nouvelle mission', new_etablissement_mission_path(@etablissement), :class => 'edit-info' %> </h3>
       <% @missions.each do |mission| %>
       <div class="profile-card mission-card">
       <h4><%= mission.title %></h4>
@@ -115,7 +120,7 @@
     <% end %>
 
   <%= link_to 'Revenir à l\'accueil', root_path, :class=> 'nav-links' %>
-  <%= link_to 'Retour liste à la liste des établissements', etablissements_path, :class => 'nav-links' %>
+  <%= link_to 'Retour liste à la liste des bénévoles', benevoles_path, :class => 'nav-links' %>
     <% if etablissement_signed_in? && current_etablissement.id == @etablissement %>
      <%= link_to 'Supprimer l\'établissement', @etablissement, method: :delete, data: { confirm: 'Certain?' }, :class => 'nav-links' %>
      </div><br>
