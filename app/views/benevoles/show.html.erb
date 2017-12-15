@@ -10,6 +10,8 @@
       <div class="id-head">
       <% if @benevole.avatar? %>
           <%= image_tag @benevole.avatar_url, :class => 'avatar' %>
+          <% else %>
+          <img src="http://www.mycolorapp.com/static/profile_images/dummy.png" class="avatar">
       <% end %>
       <div>
         <p class="name"><%= @benevole.firstname %> <%= @benevole.lastname %>
@@ -46,7 +48,7 @@
 
    <h3>Voici les missions de <%= @benevole.firstname %></h3>
    <% @missions.each do |mission| %>
-   
+
 
    <% if benevole_signed_in? && current_benevole.id == mission.benevole_id && @benevole.id == current_benevole.id %>
    <div class="profile-card mission-card">
@@ -71,7 +73,7 @@
        <p><%= mission.place %></p>
        <p><%= mission.appointment %></p>
        <p><%= mission.etablissement_id %></p>
-       
+
     </div><br>
        <% else %>
         </div><br>
