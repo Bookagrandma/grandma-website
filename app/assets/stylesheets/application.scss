@@ -34,9 +34,13 @@ $grey: #8c8c8c;
 
 
 // TEMPORAIRE : À CHANGER
-.notice, .alert {
+#warning-container, #notice, .notice, .alert {
   display: none;
+  margin: 0;
+  padding: 0;
 }
+
+
 
 
 // GÉNÉRAL

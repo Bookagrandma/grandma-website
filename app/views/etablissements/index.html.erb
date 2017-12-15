@@ -4,11 +4,11 @@
 <div id="search">
 <p id="notice"><%= notice %></p>
 
-<h1>Etablissements</h1> 
+<h1>Etablissements</h1>
 
 <%= form_tag etablissements_path, :method => 'get'  do %>
    <%= text_field_tag :search, params[:search], placeholder: "Trouver un établissement"%>
- 
+
   <%= submit_tag "Rechercher", :name => nil  %>
  <% end %>
  </div>
@@ -37,7 +37,7 @@
         <td class="link_et"><%= link_to 'Voir l\'établissement', etablissement_path(etablissement) %></td>
       </tr>
     <% end %>
-        
+
   </tbody >
 
 </table>
@@ -45,3 +45,5 @@
 
 <p><%= link_to "Revenir à l'Accueil", root_path, :class => "nav-links" %></p>
 </div>
+
+
