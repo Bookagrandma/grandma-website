@@ -21,3 +21,16 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 
+$(function() {
+
+  // Opening avatar image
+  $(".avatar").click(function(){
+    $(".bg-picture").css("display", "block")
+  });
+
+  // Closing avatar image
+  $(".close-picture").click(function(){
+    $(".bg-picture").css("display", "none")
+  });
+
+});

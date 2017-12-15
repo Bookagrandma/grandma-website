@@ -174,8 +174,8 @@ a {
       font-weight: 400;
       text-transform: uppercase;
       color: $white;
-      font-size: 1.2em;
-      line-height: 60px;
+      font-size: 1em;
+      line-height: 65px;
       transition: all ease-in .2s;
     }
     li a:hover {
@@ -401,6 +401,36 @@ nav {
     height: 100px;
     border-radius: 100px;
     border: 3px solid $blue;
+  }
+  .bg-picture {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.9);
+    width: 100%;
+    height: 100vh;
+    p {
+      font-family: 'Open Sans', sans-serif;
+      color: $white;
+      font-size: 1.2em;
+      cursor: pointer;
+      position: relative;
+      left: 245px;
+      top: 20px;
+    }
+  }
+  .full-picture {
+    position: fixed;
+    top: 110px;
+    text-align: center;
+    width: 100%;
+    img {
+      width: 30%;
+      -webkit-box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.2);
+      -moz-box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.2);
+      box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.2);
+    }
   }
   .id-head {
     display: grid;

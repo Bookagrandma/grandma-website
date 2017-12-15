@@ -74,6 +74,7 @@
        
     </div><br>
        <% else %>
+        </div><br>
      <% end %>
 
 
@@ -94,5 +95,10 @@
 
 
    <% end %>
- </div><br>
+   <div class="bg-picture">
+     <div class="full-picture">
+       <p class="close-picture">Fermer</p>
+       <% if @benevole.avatar? %><%= image_tag @benevole.avatar_url %><% end %>
+     </div>
+   </div>
 </div>
