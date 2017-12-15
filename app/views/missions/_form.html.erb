@@ -1,34 +1,38 @@
 
 
-<% if mission.errors.any? %>    
-     <div id="error_explanation">    
-       <h2><%= pluralize(mission.errors.count, "error") %> prohibited this mission from being saved:</h2>    
-     
-       <ul>    
-       <% mission.errors.full_messages.each do |message| %>    
-         <li><%= message %></li>   
-       <% end %>   
-       </ul>   
-     </div>    
-   <% end %> 
+<% if mission.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= pluralize(mission.errors.count, "error") %> prohibited this mission from being saved:</h2>
+
+       <ul>
+       <% mission.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+       </ul>
+     </div>
+   <% end %>
 
 
-<div class="field">       
-     Title: <%= f.text_field :title %>   
-   </div>    
-     
-   <div class="field">     
-     Body: <%= f.text_area :body %>    
-   </div>    
-     
-   <div class="field">       
-     Adresse : <%= (" " + @mission.etablissement.address + " " + @mission.etablissement.zip + " " + @mission.etablissement.city) %>   
-   </div>    
-     
-   <div class="field">      
-     Rendez-vous <%=f.text_field :appointment, "data-provide" => 'datepicker', "data-date-format" => "yyyy-mm-dd"%>   
-   </div> 
-     
-   <div class="actions">   
-     <%= f.submit %>    
-   </div>     
+<div class="field">
+     <h3>Titre :</h3>
+     <%= f.text_field :title %>
+   </div>
+
+   <div class="field">
+     <h3>Annonce :</h3>
+     <%= f.text_area :body %>
+   </div>
+
+   <div class="field">
+     <h3>Adresse :</h3>
+     <%= (" " + @mission.etablissement.address + " " + @mission.etablissement.zip + " " + @mission.etablissement.city) %>
+   </div>
+
+   <div class="field">
+     <h3>Rendez-vous :</h3>
+     <%=f.text_field :appointment, "data-provide" => 'datepicker', "data-date-format" => "yyyy-mm-dd"%>
+   </div>
+
+   <div class="actions">
+     <%= f.submit class: "btn-default" %>
+   </div>

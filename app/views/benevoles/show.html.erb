@@ -13,7 +13,7 @@
       <% end %>
       <div>
         <p class="name"><%= @benevole.firstname %> <%= @benevole.lastname %>
-        <p class="birth"><%= @benevole.birthday %> | <%= @benevole.gender %></p>
+        <p class="birth"><%= @benevole.birthday %></p>
       </div>
     </div>
     <div class="id-main">
@@ -46,7 +46,7 @@
 
    <h3>Voici les missions de <%= @benevole.firstname %></h3>
    <% @missions.each do |mission| %>
-   
+
 
    <% if benevole_signed_in? && current_benevole.id == mission.benevole_id && @benevole.id == current_benevole.id %>
    <div class="profile-card mission-card">
@@ -61,44 +61,11 @@
     </div><br>
        <% else %>
      <% end %>
-
-
-  <% if benevole_signed_in? && @benevole.id == mission.benevole_id && @benevole.id != current_benevole.id %>
-   <div class="profile-card mission-card">
-       <h4><%= mission.title %></h4>
-       <p class="comment-links">Mission proposée par <%= link_to mission.benevole.firstname,  benevole_path(mission.benevole_id) %> pour <%= link_to mission.etablissement.name, etablissement_path(mission.etablissement_id) %></p>
-       <p><%= mission.body %></p>
-       <p><%= mission.place %></p>
-       <p><%= mission.appointment %></p>
-       <p><%= mission.etablissement_id %></p>
-       
-    </div><br>
-       <% else %>
-        </div><br>
-     <% end %>
-
-
-
-
-  <% if etablissement_signed_in? && mission.benevole_id == @benevole.id %>
-   <div class="profile-card mission-card">
-       <h4><%= mission.title %></h4>
-       <p class="comment-links">Mission proposée par <%= link_to @benevole.firstname,  benevole_path(@benevole) %> pour <%= link_to mission.etablissement.name, etablissement_path(mission.etablissement_id) %></p>
-       <p><%= mission.body %></p>
-       <p><%= mission.place %></p>
-       <p><%= mission.appointment %></p>
-       <p><%= mission.etablissement_id %></p>
-        </div><br>
-       <% else %>
-     <% end %>
-
-
-
    <% end %>
-   <div class="bg-picture">
-     <div class="full-picture">
-       <p class="close-picture">Fermer</p>
-       <% if @benevole.avatar? %><%= image_tag @benevole.avatar_url %><% end %>
-     </div>
-   </div>
+</div>
+<div class="bg-picture">
+  <div class="full-picture">
+    <p class="close-picture">Fermer</p>
+    <% if @benevole.avatar? %><%= image_tag @benevole.avatar_url %><% end %>
+  </div>
 </div>
