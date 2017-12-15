@@ -71,7 +71,7 @@
       <div class="form-line">
         <div>
           <%= f.label :motivation %><br />
-          <%= f.text_field :motivation%>
+          <%= f.text_area :motivation, class: 'form-control'%>
         </div>
         <%= f.label :mot_de_passe %><br />
           <%= f.password_field :password, autocomplete: "off", hint: "Ne pas compléter si vous ne souhaitez pas le changer", required: false %>
