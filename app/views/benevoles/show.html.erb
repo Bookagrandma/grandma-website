@@ -15,7 +15,7 @@
       <% end %>
       <div>
         <p class="name"><%= @benevole.firstname %> <%= @benevole.lastname %>
-        <p class="birth"><%= @benevole.birthday %> | <%= @benevole.gender %></p>
+        <p class="birth"><%= @benevole.birthday %></p>
       </div>
     </div>
     <div class="id-main">
@@ -94,13 +94,11 @@
        <% else %>
      <% end %>
 
-
-
    <% end %>
-   <div class="bg-picture">
-     <div class="full-picture">
-       <p class="close-picture">Fermer</p>
-       <% if @benevole.avatar? %><%= image_tag @benevole.avatar_url %><% end %>
-     </div>
-   </div>
+</div>
+<div class="bg-picture">
+  <div class="full-picture">
+    <p class="close-picture">Fermer</p>
+    <% if @benevole.avatar? %><%= image_tag @benevole.avatar_url %><% end %>
+  </div>
 </div>

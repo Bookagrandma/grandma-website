@@ -38,13 +38,13 @@
         <%= f.text_field :city%>
       </div>
       <div>
-       <%= f.label :téléphone %><br />
+       <%= f.label :téléphone %> (ex : 0102030405)<br />
         <%= f.text_field :phone%>
       </div>
     </div>
 
      <div class="form-line"> 
-      <%= f.label :département %><br />
+      <%= f.label :département %> (ex : 75)<br />
         <%= f.text_field :dept %>
      <%= f.label :description %><br />
         <%= f.text_field :description%>
@@ -64,12 +64,13 @@
         <%= f.password_field  :password_confirmation, required: false %>
 
       </div>
+    </div>
 
 
         <div class="form-actions">
           <%= f.button :submit, "S'enregistrer" %>
         </div>
-  <% end %><br>
+  <% end %>
 
   <%= render "etablissements/shared/links" %>
 
