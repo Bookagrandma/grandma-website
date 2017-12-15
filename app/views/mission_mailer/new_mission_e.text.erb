@@ -1,14 +1,14 @@
 Bonjour,
 
-<%= @etablissement.name %> fait parti des établissements qui peuvent recevoir des bénévoles qui veulent du lien avec vos pensionnaires.
+<%= @etablissement.name %> fait partie des établissements inscrits sur Bookagrandma, la plateforme gratuite qui permet de vous connecter avec des bénévoles qui souhaitent s'impliquer auprès de vos pensionnaires.
 
 Vous avez une nouvelle proposition.
 
-Voici la proposition :
+Voici son contenu :
 
 Proposition : <%= @mission.title %>
 Détail : <%= @mission.body %>
 Lieu : <%= @mission.place %>
 Temps disponible : <%= @mission.appointment %>
 
-Pour voir cette proposition, rdv sur cette page : <%= mission_url(@mission.id) %>
+Pour voir cette proposition, rdv sur cette page : <%= missions_url(@etablissement.missions) %>
