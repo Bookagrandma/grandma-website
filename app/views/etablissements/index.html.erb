@@ -1,5 +1,7 @@
 <%= render partial: "layouts/navbar" %>
 
+<div class="page-container indexet" >
+<div id="search">
 <p id="notice"><%= notice %></p>
 
 <h1>Etablissements</h1> 
@@ -9,11 +11,12 @@
  
   <%= submit_tag "Rechercher", :name => nil  %>
  <% end %>
+ </div>
 
-
+<div class = "table"></div>
 <br>
 <table>
-  <thead>
+  <thead class="table-title">
     <tr>
       <th>Name</th>
       <th>Address</th>
@@ -31,7 +34,7 @@
         <td><%= etablissement.zip %></td>
         <td><%= etablissement.city %></td>
         <td><%= etablissement.dept %></td>
-        <td><%= link_to 'Voir l\'établissement', etablissement_path(etablissement) %></td>
+        <td class="link_et"><%= link_to 'Voir l\'établissement', etablissement_path(etablissement) %></td>
       </tr>
     <% end %>
         
@@ -40,4 +43,5 @@
 </table>
 
 
-<p><%= link_to "Revenir à l'Accueil", root_path %></p>
+<p><%= link_to "Revenir à l'Accueil", root_path, :class => "nav-links" %></p>
+</div>
