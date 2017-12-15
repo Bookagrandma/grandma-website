@@ -19,11 +19,12 @@
       </div>
       <div class="form-line"><%= f.label :téléphone %><br />
           <%= f.text_field :phone%>
-     
+
         <div>
+
           <%= f.label :Nom %><br />
           <%= f.text_field :lastname%>
-        
+
         </div>
       </div>
       <div class="form-line">
@@ -31,6 +32,7 @@
      <%= f.label :addresse %><br />
           <%= f.text_field :address%>
         </div>
+
         <div> 
           
          <%= f.label :ville %><br />
@@ -39,7 +41,6 @@
       </div>
       <div class="form-line">
         <div> 
-        
           <%= f.label :code_postal %><br />
           <%= f.text_field :zip%>
         </div>
@@ -57,8 +58,9 @@
       </div>
        <div class="form-line">
         <div>
-                <%= f.label :confirmation_mot_de_passe %> obligatoire
-        <%= f.password_field :password_confirmation, required: true %>
+              <%= f.label :date_anniversaire %><br />
+          <%= f.text_field :birthday %>
+
         </div>
     </div>
     </div>
