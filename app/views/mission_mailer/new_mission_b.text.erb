@@ -1,7 +1,7 @@
 Bonjour <%= @benevole.firstname %>,
 
 
-Votre commentaire (#{mission.title}) sur l'établissement : #{@etablissement.name} a bien été ajouté.
+Votre proposition (#{mission.title}) sur la page de l'établissement : #{@etablissement.name} a bien été ajoutée.
 
 Pour rappel, la voici :
 
@@ -10,5 +10,5 @@ Détail : <%= @mission.body %>
 Lieu : <%= @mission.place %>
 Temps disponible : <%= @mission.appointment %>
 
-Pour voir modifier ou supprimer, rdv sur cette page : <%= mission_url(@mission.id) %>
+Pour voir, modifier ou supprimer votre proposition, rdv sur cette page : <%= mission_url(@mission.id) %>
 

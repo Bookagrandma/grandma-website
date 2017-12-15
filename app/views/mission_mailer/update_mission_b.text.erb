@@ -1,7 +1,7 @@
 <h4>Bonjour,</h4>
 
 
-<p>Votre commentaire <%= @mission.title %> sur l'établissement : <%= @etablissement.name %> a bien été mis à jour.</p>
+<p>Votre proposition <%= @mission.title %> sur la page de l'établissement : <%= @etablissement.name %> a bien été mis à jour.</p>
 
 
 <p>Pour rappel, la voici :</p>
@@ -12,5 +12,5 @@
 <em>Temps disponible : <%= @mission.appointment %></em>
 </blockquote>
 
-<p>Pour voir modifier ou supprimer, rdv sur cette page : <%= mission_url(@mission.id) %></p>
+<p>Pour voir, modifier ou supprimer votre proposition, rdv sur cette page : <%= missions_url(@benevole.missions) %></p>
 
