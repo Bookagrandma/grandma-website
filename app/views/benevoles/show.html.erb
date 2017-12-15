@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="id-footer">
-      <% if benevole_signed_in? && @benevole.id == current_benevole.id%>
+      <% if benevole_signed_in? && @benevole.id == current_benevole.id %>
       <%= link_to "Modifier mes informations", edit_benevole_registration_path, :class => 'edit-info' %>
       <% end %>
     </div>
@@ -76,10 +76,7 @@
 
     </div><br>
        <% else %>
-        </div><br>
      <% end %>
-
-
 
 
   <% if etablissement_signed_in? && mission.benevole_id == @benevole.id %>
@@ -95,7 +92,24 @@
      <% end %>
 
    <% end %>
+
+
+ <%= link_to 'Revenir à l\'accueil', root_path, :class=> 'nav-links' %>
+
+<% if etablissement_signed_in?  %>
+  <%= link_to 'Retour à la liste des bénévoles', benevoles_path, :class => 'nav-links' %>
+  </div><br>
+    <% else %>
+  <% end %>
+
+
+<% if benevole_signed_in? %>
+  <%= link_to 'Retour à la liste des établissements', etablissements_path, :class => 'nav-links' %>
+  </div><br>
+    <% else %>
+  <% end %>
 </div>
+
 <div class="bg-picture">
   <div class="full-picture">
     <p class="close-picture">Fermer</p>

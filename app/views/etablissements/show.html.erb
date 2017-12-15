@@ -47,8 +47,6 @@
   </div>
 
 
-
-
   <h3>Les propositions de <span><%= @etablissement.name %> </span> <%= link_to 'Je propose une nouvelle mission', new_etablissement_mission_path(@etablissement), :class => 'edit-info' %> </h3>
       <% @missions.each do |mission| %>
       <div class="profile-card mission-card">
@@ -120,12 +118,19 @@
     <% end %>
 
   <%= link_to 'Revenir à l\'accueil', root_path, :class=> 'nav-links' %>
-  <%= link_to 'Retour liste à la liste des bénévoles', benevoles_path, :class => 'nav-links' %>
-    <% if etablissement_signed_in? && current_etablissement.id == @etablissement %>
-     <%= link_to 'Supprimer l\'établissement', @etablissement, method: :delete, data: { confirm: 'Certain?' }, :class => 'nav-links' %>
-     </div><br>
+
+
+<% if etablissement_signed_in?  %>
+  <%= link_to 'Retour à la liste des bénévoles', benevoles_path, :class => 'nav-links' %>
+  </div><br>
     <% else %>
-    </div><br>
+  <% end %>
+
+
+<% if benevole_signed_in? %>
+  <%= link_to 'Retour à la liste des établissements', etablissements_path, :class => 'nav-links' %>
+  </div><br>
+    <% else %>
   <% end %>
 
 </div>

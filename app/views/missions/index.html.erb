@@ -4,30 +4,29 @@
 
 <div class="page-container index-missions">
 
-  <h2>Liste de vos propositions de bénévolats</h2>
-  <div class="decor-line"></div>
-    <% @missions.each do |mission| %>
-    <% if benevole_signed_in? && current_benevole.id == mission.benevole_id || etablissement_signed_in? && current_etablissement.id == mission.etablissement_id %>
+        <h2>Liste de vos propositions de bénévolats</h2>
+        <div class="decor-line"></div>
+        <% @missions.each do |mission| %>
+        <% if benevole_signed_in? && current_benevole.id == mission.benevole_id || etablissement_signed_in? && current_etablissement.id == mission.etablissement_id %>
+
     <div class="profile-card mission-card">
         <h4><%= mission.title %></h4>
-
-
-    <% if benevole_signed_in? && current_benevole.id == mission.benevole_id %>
-        <p class="comment-links">Mission proposée pour <%= link_to mission.etablissement.name, etablissement_path(mission.etablissement_id) %> </p>
-    <% else %> <% end %>
-    
-    <% if etablissement_signed_in? && current_etablissement.id == mission.etablissement_id && mission.benevole_id != nil %> 
-        <p class="comment-links">Mission proposée par <%= link_to mission.benevole.firstname, benevole_path(mission.benevole_id)%> </p>
-    <% else %>
-    <% end %>
-
-     <% if etablissement_signed_in? && current_etablissement.id == mission.etablissement_id && mission.benevole_id == nil %> 
-        <p class="comment-links">Mission proposée par <%= link_to "vous-même", etablissement_path(mission.etablissement_id)%> </p>
-    <% else %>
-    <% end %>
-
         <p><%= mission.place %></p>
         <p><%= mission.appointment %></p>
+        
+        <% if benevole_signed_in? && current_benevole.id == mission.benevole_id %>
+        <p class="comment-links">Mission proposée pour <%= link_to mission.etablissement.name, etablissement_path(mission.etablissement_id) %></p>
+        <% else %> <% end %>
+        
+        <% if etablissement_signed_in? && current_etablissement.id == mission.etablissement_id && mission.benevole_id != nil %> 
+        <p class="comment-links">Mission proposée par <%= link_to mission.benevole.firstname, benevole_path(mission.benevole_id)%> </p>
+        <% else %> <% end %>
+
+        <% if etablissement_signed_in? && current_etablissement.id == mission.etablissement_id && mission.benevole_id == nil %> 
+        <p class="comment-links">Mission proposée par <%= link_to "vous-même", etablissement_path(mission.etablissement_id)%> </p>
+        <% else %> <% end %>
+
+
      
         <% if benevole_signed_in? && current_benevole.id == mission.benevole_id  %>
         <%= link_to 'Modifier', edit_mission_path(mission), :class => 'edit-links' %>
@@ -37,13 +36,11 @@
         <% if etablissement_signed_in? && current_etablissement.id == mission.etablissement_id && mission.benevole_id == nil   %>
         <%= link_to 'Modifier', edit_mission_path(mission), :class => 'edit-links' %>
         <%= link_to 'Supprimer', mission, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'cancel-links' %>
-    </div><br> <% else %> </div><br> <% end %>
-
+    </div><br> <% else %> <% end %>
     
-    <% else %>
-
-    <% end %>
+        <% else %>
+        <% end %>
     <% end %>
     <%= link_to 'Revenir à l\'accueil', root_path, :class => 'nav-links' %>
-
+</div>
 </div>
