@@ -1,10 +1,15 @@
+<%= render partial: "layouts/navbar" %>
 
-<h1>Modifier ma proposition</h1>
+<div class="page-container edit-form">
 
-<%= form_for @mission, url: mission_path(@mission), method: :patch  do |form| %>
-<%= render partial: 'form', locals: {f: form, mission: @mission} %>
-<% end %>
+  <h1>Editing Mission</h1>
 
- |
-<%= link_to 'Retour', missions_path %>
+  <%= form_for @mission, url: mission_path(@mission), method: :patch  do |form| %>
+  <%= render partial: 'form', locals: {f: form, mission: @mission} %>
+  <% end %>
 
+
+  <%= link_to 'Voir', @mission, :class => 'nav-links' %>
+  <%= link_to 'Retour', missions_path, :class => 'nav-links' %>
+
+</div>

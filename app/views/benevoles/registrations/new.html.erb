@@ -8,51 +8,59 @@
 
     <div class="form-inputs">
       <div class="form-line">
-        <%= f.input :email, required: true, autofocus: true %>
-        <%= f.label :mot_de_passe %>
-          <%= f.password_field :password, required: true, hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length) %>
+        <div>
+        <%= f.label :email %> obligatoire<br>
+          <%= f.email_field  :email, required: true, autofocus: true %>
+        </div>
+        <div>
+        <%= f.label :Prénom %><br />
+          <%= f.text_field :firstname%> 
       </div>
-      <div class="form-line"><%= f.label :téléphone %><br />
+      </div>
+      <div class="form-line"><%= f.label :téléphone %> (ex : 0102030405)<br />
           <%= f.text_field :phone%>
 
         <div>
 
-          <%= f.label :confirmation_mot_de_passe %>
-        <%= f.password_field :password_confirmation, required: true %>
-        </div>
-      </div>
-      <div class="form-line">
-        <div>
-          <%= f.label :Prénom %><br />
-          <%= f.text_field :firstname%>
-        </div>
-        <div>
-          <%= f.label :addresse %><br />
-          <%= f.text_field :address%>
-
-        </div>
-      </div>
-      <div class="form-line">
-        <div>
           <%= f.label :Nom %><br />
           <%= f.text_field :lastname%>
 
         </div>
+      </div>
+      <div class="form-line">
         <div>
+     <%= f.label :addresse %><br />
+          <%= f.text_field :address%>
+        </div>
+
+        <div> 
+          
+         <%= f.label :ville %><br />
+          <%= f.text_field :city%>
+        </div>
+      </div>
+      <div class="form-line">
+        <div> 
           <%= f.label :code_postal %><br />
           <%= f.text_field :zip%>
+        </div>
+        <div>
+         <%= f.label :date_anniversaire %> (ex : 24/12/1990)<br />
+          <%= f.text_field :birthday%>
         </div>
       </div>
       <div class="form-line">
         <div>
-          <%= f.label :ville %><br />
-          <%= f.text_field :city%>
+          
+            <%= f.label :mot_de_passe %> obligatoire
+          <%= f.password_field :password, required: true, hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length) %>
         </div>
       </div>
        <div class="form-line">
         <div>
               <%= f.label :date_anniversaire %><br />
           <%= f.text_field :birthday %>
+
         </div>
     </div>
     </div>

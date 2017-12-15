@@ -64,7 +64,7 @@
           <%= f.text_field :city%>
         </div>
         <div>
-          <%= f.label :téléphone %><br />
+          <%= f.label :téléphone %> (ex : 0102030405)<br />
           <%= f.text_field :phone%>
         </div>
       </div>
@@ -73,14 +73,15 @@
           <%= f.label :motivation %><br />
           <%= f.text_field :motivation, class: 'form-control'%>
         </div>
-        <%= f.label :mot_de_passe %><br />
+        <%= f.label :modifier_mot_de_passe %><br />
           <%= f.password_field :password, autocomplete: "off", hint: "Ne pas compléter si vous ne souhaitez pas le changer", required: false %>
       </div>
       <div class="form-line">
-        <%= f.label :confirmation_mot_de_passe %><br />
+        
+        <%= f.label :mot_de_passe_actuel %>  obligatoire pour confirmer les changements<br />
+          <%= f.password_field  :current_password, required: true %>
+          <%= f.label :confirmation_modification_mot_de_passe %><br />
           <%= f.password_field :password_confirmation, required: false %>
-        <%= f.label :mot_de_passe_actuel %><br />
-          <%= f.password_field  :current_password, hint: "Entrez votre mot de passe pour confirmer les changements", required: true %>
       </div>
     </div>
 
@@ -94,6 +95,6 @@
   <p>Vous n'êtes plus interessé par le service ? <br>
   <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Certain ?" }, method: :delete, :class => "cancel-links" %></p>
 
-  <%= link_to "Retour", :back, :class => "nav-links" %><%= link_to "Voir le profil", benevole_path(id: current_benevole.id), :class => 'edit-info', :style => 'margin-left: 20px;' %>
+  <%= link_to "Retour", :back, :class => "nav-links" %><%= link_to "Home", root_path, :class => 'edit-info', :style => 'margin-left: 20px;' %>
 
 </div>

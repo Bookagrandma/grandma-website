@@ -1,43 +1,39 @@
 <%= render partial: "layouts/navbar" %>
 
-<div class="page-container hopital-profile">
+<div class="page-container benevole-profile">
 
   <h2>Bienvenue sur la page de <span><%= @etablissement.name%></span></h2>
   <div class="decor-line"></div>
-    <div class="profile-card-container">
+
+  <h3>Carte d'identité de <%= @etablissement.name %></h3>
+    <div class="profile-card">
       <div class="id-head">
       <% if @etablissement.avatar? %>
           <%= image_tag @etablissement.avatar_url, :class => 'avatar' %>
+          <% else %>
+          <img src="http://www.mycolorapp.com/static/profile_images/dummy.png" class="avatar">
       <% end %>
       <div>
-      <div class="profile-card">
-        <h2><i class="fa fa-map-marker" aria-hidden="true"></i>Localisation</h2>
-        <h4>Address</h4>
-        <p><%= @etablissement.address%></p>
+        <p class="name"><%= @etablissement.name %> </p>
+      </div>
 
-        <h4>ZIP</h4>
+ </div>
+    <div class="id-main">
+      <div>      
+        <h3><i class="fa fa-map-marker" aria-hidden="true"></i>Adresse</h3>
+        <p><%= @etablissement.address%></p> 
         <p><%= @etablissement.zip%></p>
-
-        <h4>City</h4>
         <p><%= @etablissement.city%></p>
-
-        <h4>Dept</h4>
         <p><%= @etablissement.dept%></p>
       </div>
-
-      <div class="profile-card">
-        <h2><i class="fa fa-phone" aria-hidden="true"></i>Contact</h2>
-        <h4>Category</h4>
-        <p><%= @etablissement.category%></p>
-
-        <h4>Phone</h4>
+    <div>
+        <h3><i class="fa fa-mobile" aria-hidden="true"></i>Contact</h3>
         <p><%= @etablissement.phone%></p>
       </div>
-
        <div>
-      <h4><i class="fa fa-lightbulb-o" aria-hidden="true"></i>Description</h4>
+      <h3><i class="fa fa-lightbulb-o" aria-hidden="true"></i>Description</h3>
         <% if (@etablissement.description == nil)  %>
-          <p><%= render html: "N'oubliez pas de rajouter une petite description" %></p>
+          <p><%= render html: "N'oubliez pas de rajouter votre description" %></p>
           <% else %>
           <p><%= @etablissement.description %></p>
         <% end %>
@@ -45,16 +41,13 @@
     </div>
       <div class="id-footer">
       <% if etablissement_signed_in? && @etablissement.id == current_etablissement.id%>
-      <%= link_to "Modifier mes informations", edit_etablissement_registration_path, :class => 'edit-info' %> <% else %>
+      <%= link_to "Modifier mes informations", edit_etablissement_registration_path, :class => 'edit-info' %> 
       <% end %> 
     </div>
   </div>
-  </div>
 
 
-
-  <h3>Les missions de <span><%= @etablissement.name %> proposées</span></h3>
-  <%= link_to 'Je propose une nouvelle mission', new_etablissement_mission_path(@etablissement), :class => 'edit-info' %>
+  <h3>Les propositions de <span><%= @etablissement.name %> </span> <%= link_to 'Je propose une nouvelle mission', new_etablissement_mission_path(@etablissement), :class => 'edit-info' %> </h3>
       <% @missions.each do |mission| %>
       <div class="profile-card mission-card">
       <h4><%= mission.title %></h4>
@@ -125,12 +118,19 @@
     <% end %>
 
   <%= link_to 'Revenir à l\'accueil', root_path, :class=> 'nav-links' %>
-  <%= link_to 'Retour liste à la liste des établissements', etablissements_path, :class => 'nav-links' %>
-    <% if etablissement_signed_in? && current_etablissement.id == @etablissement %>
-     <%= link_to 'Supprimer l\'établissement', @etablissement, method: :delete, data: { confirm: 'Certain?' }, :class => 'nav-links' %>
-     </div><br>
+
+
+<% if etablissement_signed_in?  %>
+  <%= link_to 'Retour à la liste des bénévoles', benevoles_path, :class => 'nav-links' %>
+  </div><br>
     <% else %>
-    </div><br>
+  <% end %>
+
+
+<% if benevole_signed_in? %>
+  <%= link_to 'Retour à la liste des établissements', etablissements_path, :class => 'nav-links' %>
+  </div><br>
+    <% else %>
   <% end %>
 
 </div>

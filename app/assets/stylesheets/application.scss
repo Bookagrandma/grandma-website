@@ -40,6 +40,9 @@ $grey: #8c8c8c;
 
 
 // GÉNÉRAL
+#benevole_remember_me, #etablissement_remember_me {
+  margin-bottom: 0px;
+}
 .nav-links {
   font-size: 1.3em;
   font-family: 'Nunito', 'Helvetica', sans-serif;
@@ -53,7 +56,26 @@ $grey: #8c8c8c;
 .nav-links:hover {
   color: $black;
 }
-
+.connect-form {
+  a {
+    font-size: 1.3em;
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    margin-top: 30px;
+    border: 2px solid $black;
+    padding: 3px 10px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-right: 10px;
+    float: left;
+    margin-right: 10px;
+  }
+  a:nth-of-type(2){
+    margin-top: 10px;
+  }
+  a:hover {
+    color: $black;
+  }
+}
 
 // Fonts awsome icons size
 .fa:before {
@@ -335,6 +357,13 @@ nav {
     font-weight: 700;
     font-size: 1.3em;
   }
+  .avatar {
+    //scale to change in avatar.rb
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    border: 3px solid $blue;
+  }
   p {
     font-family: 'Open Sans', 'Helvetica', sans-serif;
     font-size: 2.5em;
@@ -402,35 +431,8 @@ nav {
     border-radius: 100px;
     border: 3px solid $blue;
   }
-  .bg-picture {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0,0,0,.9);
-    width: 100%;
-    height: 100vh;
-    p {
-      font-family: 'Open Sans', sans-serif;
-      color: $white;
-      font-size: 1.2em;
-      cursor: pointer;
-      position: relative;
-      left: 245px;
-      top: 20px;
-    }
-  }
-  .full-picture {
-    position: fixed;
-    top: 110px;
-    text-align: center;
-    width: 100%;
-    img {
-      width: 30%;
-      -webkit-box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.2);
-      -moz-box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.2);
-      box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.2);
-    }
+  .avatar:hover{
+    cursor: pointer;
   }
   .id-head {
     display: grid;
@@ -469,6 +471,37 @@ nav {
   }
 }
 
+.bg-picture {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.9);
+  width: 100%;
+  height: 100vh;
+  p {
+    font-family: 'Open Sans', sans-serif;
+    color: $white;
+    font-size: 1.2em;
+    cursor: pointer;
+    position: relative;
+    left: 245px;
+    top: 20px;
+  }
+}
+.full-picture {
+  position: fixed;
+  top: 110px;
+  text-align: center;
+  width: 100%;
+  img {
+    width: 30%;
+    -webkit-box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.2);
+    -moz-box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.2);
+    box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.2);
+  }
+}
+
 .index-missions {
   background-color: rgba(233, 236, 230, 0.45);
 }
@@ -486,4 +519,38 @@ nav {
   background-color: $purple;
   color: $white;
   text-decoration: none;
+}
+
+//PAGES D'ÉDITION
+.edit-form {
+  .field {
+    display: grid;
+  }
+  .actions {
+    display: inline-block;
+    input {
+      padding-right: 20px;
+    }
+  }
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid $black;
+    font-size: .9em;
+    font-family: 'Open Sans', 'Helvetica', sans-serif;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  textarea {
+    height: 150px;
+  }
+  label {
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    font-weight: 700;
+    letter-spacing: .03em;
+    font-size: 1.5em;
+    margin-left: 2px;
+    color: $blue;
+  }
 }
