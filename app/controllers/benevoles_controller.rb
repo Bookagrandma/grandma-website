@@ -21,7 +21,7 @@ class BenevolesController < ApplicationController
 	def update
     respond_to do |format|
       if @benevole.update(benevole_params)
-        format.html { redirect_to @benevole, notice: 'Votre profil bénévole a été modifié avec succès' }
+        format.html { redirect_to benevole_path(@benevole), notice: 'Votre profil bénévole a été modifié avec succès' }
         # format.json { render :show, status: :ok, location: @benevole }
       else
         format.html { render :edit }
