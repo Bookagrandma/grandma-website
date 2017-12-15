@@ -75,7 +75,7 @@ class MissionsController < ApplicationController
         MissionMailer.update_mission_b(Mission.last).deliver_now
         MissionMailer.update_mission_e(Mission.last).deliver_now
         format.html { redirect_to @mission.etablissement, notice: 'La Proposition a bien été modifiée.' }
-        format.json { render :show, status: :ok, location: @mission }
+        format.json { render :show, status: :ok, location: @mission.etablissement }
       else
         format.html { render :edit }
         format.json { render json: @mission.errors, status: :unprocessable_entity }
