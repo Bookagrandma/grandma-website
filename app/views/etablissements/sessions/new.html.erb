@@ -13,11 +13,15 @@
       <%= f.password_field :password, required: false %>
       <%= f.check_box :remember_me, as: :boolean if devise_mapping.rememberable? %>
       <%= f.label :se_souvenir_de_moi %>
+    </div>
+  </div>
+
     <div class="form-actions">
       <%= f.button :submit, "Se connecter" %>
     </div>
+
   <% end %>
+
   <%= render "etablissements/shared/links" %>
   </div>
-  </div>
-</div>
+
