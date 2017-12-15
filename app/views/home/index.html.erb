@@ -16,7 +16,25 @@
       <%= link_to "Bénevole", new_benevole_registration_path, :class => 'bnvl-sup' %>
       <%= link_to "Etablissement", new_etablissement_registration_path, :class => 'etbl-sup' %>
     </div>
+    <%else%>
     <% end %>
+
+    <% if benevole_signed_in? %>
+    <div class="home-signup">
+      <h4>Trouver un établissement autour de vous</h4>
+      <%= link_to "Chercher", etablissements_path, :class => 'etbl-sup' %>
+    </div>
+    <%else%>
+    <% end %>
+
+   <% if etablissement_signed_in? %>
+    <div class="home-signup">
+      <h4>Voir les propositions de missions reçues</h4>
+      <%= link_to "Voir", missions_path, :class => 'etbl-sup' %>
+    </div>
+    <%else%>
+    <% end %>
+
   </div>
 
   <div class="etablissements-map">

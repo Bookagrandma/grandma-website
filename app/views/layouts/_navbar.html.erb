@@ -18,9 +18,11 @@
       <% elsif etablissement_signed_in? %>
        
         
-        <li><%= link_to "Votre profil", etablissement_path(id: current_etablissement.id) %></li>
-        <li><%= link_to "Vos propositions", missions_path %></li>
-        <li class="button-right"><%= link_to "Déconnecter", destroy_etablissement_session_path, method: :delete %></li>
+        
+        <li><%= link_to "Propositions", missions_path %></li>
+        <li><%= link_to "Bénévoles", benevoles_path %></li>
+        <li><%= link_to "Profil", etablissement_path(id: current_etablissement.id) %></li>
+        <li class="button-right"><%= link_to "Déconnexion", destroy_etablissement_session_path, method: :delete %></li>
       <% end %>
     </ul>
   </div>

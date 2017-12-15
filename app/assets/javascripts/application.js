@@ -21,6 +21,7 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 
+//jquery begin
 $(function() {
 
   // Opening avatar image
@@ -34,3 +35,4 @@ $(function() {
   });
 
 });
+//jquery end

@@ -1,14 +1,6 @@
 class EtablissementsController < ApplicationController
 
-  # def index
-  #   #@etablissements = Etablissement.all
-  #   @etablissements = Etablissement.search(params[:search], params[:id])
-  # end
-
   before_action :authenticate_etablissement!, only: [:edit, :update]
-  
-
- autocomplete :city, :name, :dept
 
   def index
     if params[:search]

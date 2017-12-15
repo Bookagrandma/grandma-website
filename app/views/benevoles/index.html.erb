@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1>Bénévoles</h1>
+
+
+ <%= form_tag benevoles_path, :method => 'get'  do %>
+   <%= text_field_tag :search, params[:search], placeholder: "Trouver un bénévole"%>
+   <%= submit_tag "Chercher", :name => nil %>
+ <% end %>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Ville</th>
+      <th>Code postal</th>
+      <th>Motivation</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody >
+
+    <% @benevoles.each do |benevole| %>
+      <tr>
+        <td><%= benevole.firstname %></td>
+        <td><%= benevole.lastname %></td>
+        <td><%= benevole.city %></td>
+        <td><%= benevole.zip %></td>
+        <td><%= benevole.motivation %></td>
+        <td><%= link_to 'En savoir plus sur le bénévole', benevole_path(benevole) %></td>
+        <td colspan="6"></td>
+      </tr>
+    <% end %> 
+  </tbody>
+</table>
+
+<p><%= link_to("Revenir à l'Accueil",root_path)%></p>

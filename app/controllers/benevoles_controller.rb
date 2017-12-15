@@ -1,18 +1,21 @@
 class BenevolesController < ApplicationController
 
 	before_action :authenticate_benevole!, only: [:edit, :update]
-	before_action :set_benevole
+	#before_action :set_benevole
 
-	def index
-		@currentBenevole = current_benevole.id
-	end
+
+   def index
+    if params[:search]
+      @benevoles = Benevole.search(params[:search]).order("created_at ASC")
+    else
+      @benevoles = Benevole.all
+    end
+  end
 
 	def show
 		@benevole = Benevole.find(params[:id])
 		@missions = Mission.all
-	end
-
-	def index
+    #@currentBenevole = current_benevole.id
 	end
 
 	def update
