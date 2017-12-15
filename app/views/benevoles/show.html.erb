@@ -46,7 +46,9 @@
 
    <h3>Voici les missions de <%= @benevole.firstname %></h3>
    <% @missions.each do |mission| %>
-   <% if benevole_signed_in? && current_benevole.id == mission.benevole_id %>
+   
+
+   <% if benevole_signed_in? && current_benevole.id == mission.benevole_id && @benevole.id == current_benevole.id %>
    <div class="profile-card mission-card">
        <h4><%= mission.title %></h4>
        <p class="comment-links">Mission proposée par <%= link_to mission.benevole.firstname,  benevole_path(mission.benevole_id) %> pour <%= link_to mission.etablissement.name, etablissement_path(mission.etablissement_id) %></p>
@@ -56,9 +58,41 @@
        <p><%= mission.etablissement_id %></p>
        <%= link_to 'Modifier', edit_mission_path(mission), :class => 'edit-links' %>
        <%= link_to 'Supprimer', mission, method: :delete, data: { confirm: 'Certains ?' }, :class => 'cancel-links' %>
-   </div><br>
+    </div><br>
        <% else %>
      <% end %>
+
+
+  <% if benevole_signed_in? && @benevole.id == mission.benevole_id && @benevole.id != current_benevole.id %>
+   <div class="profile-card mission-card">
+       <h4><%= mission.title %></h4>
+       <p class="comment-links">Mission proposée par <%= link_to mission.benevole.firstname,  benevole_path(mission.benevole_id) %> pour <%= link_to mission.etablissement.name, etablissement_path(mission.etablissement_id) %></p>
+       <p><%= mission.body %></p>
+       <p><%= mission.place %></p>
+       <p><%= mission.appointment %></p>
+       <p><%= mission.etablissement_id %></p>
+       
+    </div><br>
+       <% else %>
+     <% end %>
+
+
+
+
+  <% if etablissement_signed_in? && mission.benevole_id == @benevole.id %>
+   <div class="profile-card mission-card">
+       <h4><%= mission.title %></h4>
+       <p class="comment-links">Mission proposée par <%= link_to @benevole.firstname,  benevole_path(@benevole) %> pour <%= link_to mission.etablissement.name, etablissement_path(mission.etablissement_id) %></p>
+       <p><%= mission.body %></p>
+       <p><%= mission.place %></p>
+       <p><%= mission.appointment %></p>
+       <p><%= mission.etablissement_id %></p>
+        </div><br>
+       <% else %>
+     <% end %>
+
+
+
    <% end %>
  </div><br>
 </div>
