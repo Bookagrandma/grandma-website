@@ -75,7 +75,7 @@ class MissionsController < ApplicationController
         MissionMailer.update_mission_b(Mission.last).deliver_now
         MissionMailer.update_mission_e(Mission.last).deliver_now
         format.html { redirect_to @mission.etablissement, notice: 'La Proposition a bien été modifiée.' }
-        format.json { render :show, status: :ok, location: @mission }
+        format.json { render :show, status: :ok, location: @mission.etablissement }
       else
         format.html { render :edit }
         format.json { render json: @mission.errors, status: :unprocessable_entity }
@@ -90,7 +90,7 @@ class MissionsController < ApplicationController
     MissionMailer.destroy_mission_e(Mission.find(params[:id])).deliver_now
     @mission.destroy
     respond_to do |format|
-      format.html { redirect_to @etablissement, notice: 'La Proposition a bien été supprimée' }
+      format.html { redirect_to etablissement_path, notice: 'La Proposition a bien été supprimée' }
       format.json { head :no_content }
     end
   end

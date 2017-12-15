@@ -10,7 +10,7 @@ class MissionMailer < ApplicationMailer
     @bag = 'bookagrandma@gmail.com'
     if @benevole != nil
       mail to: @benevole.email,
-        subject: "Votre commentaire (#{mission.title}) sur l'établissement : #{@etablissement.name} a bien été ajouté.",
+        subject: "Votre proposition (#{mission.title}) sur la page de l'établissement : #{@etablissement.name} a bien été ajoutée.",
         bcc: @bag
     else
     end
@@ -24,7 +24,7 @@ class MissionMailer < ApplicationMailer
     @etablissement= @mission.etablissement
     @bag = 'bookagrandma@gmail.com'
       mail to: @etablissement.email,
-        subject: "Vous avez un nouveau commentaire (#{mission.title}) sur la page de votre établissement.",
+        subject: "Vous avez une nouvelle proposition (#{mission.title}) sur la page de votre établissement.",
         bcc: @bag
   end
 
@@ -62,7 +62,7 @@ class MissionMailer < ApplicationMailer
     @bag = 'bookagrandma@gmail.com'
     if @benevole != nil
       mail to: @benevole.email,
-        subject: "Vous avez supprimé votre mission : #{mission.title}",
+        subject: "Vous avez supprimé votre proposition : #{mission.title}",
         bcc: @bag
     else
     end
@@ -74,7 +74,7 @@ class MissionMailer < ApplicationMailer
     @etablissement= @mission.etablissement
     @bag = 'bookagrandma@gmail.com'
       mail to: @etablissement.email,
-        subject: "La proposition #{mission.title} a été supprimé",
+        subject: "La proposition #{mission.title} a été supprimée",
         bcc: @bag
   end
 
