@@ -53,7 +53,7 @@
    <% if benevole_signed_in? && current_benevole.id == mission.benevole_id && @benevole.id == current_benevole.id %>
    <div class="profile-card mission-card">
        <h4><%= mission.title %></h4>
-       <p class="comment-links">Mission proposée par <%= link_to mission.benevole.firstname,  benevole_path(mission.benevole_id) %> pour <%#= link_to mission.etablissement.id, etablissement_path(mission.etablissement_id) %></p>
+       <p class="comment-links">Mission proposée par <%= link_to mission.benevole.firstname,  benevole_path(mission.benevole_id) %> pour <%= link_to mission_etablissement.id, etablissement_path(mission.etablissement_id) %></p>
        <p><%= mission.body %></p>
        <p><%= mission.place %></p>
        <p><%= mission.appointment %></p>
@@ -68,7 +68,7 @@
   <% if benevole_signed_in? && @benevole.id == mission.benevole_id && @benevole.id != current_benevole.id %>
    <div class="profile-card mission-card">
        <h4><%= mission.title %></h4>
-       <p class="comment-links">Mission proposée par <%= link_to mission.benevole.firstname,  benevole_path(mission.benevole_id) %> pour <%#= link_to mission.etablissement.id, etablissement_path(mission.etablissement_id) %></p>
+       <p class="comment-links">Mission proposée par <%= link_to mission.benevole.firstname,  benevole_path(mission.benevole_id) %> pour <%= link_to mission_etablissement.id, etablissement_path(mission.etablissement_id) %></p>
        <p><%= mission.body %></p>
        <p><%= mission.place %></p>
        <p><%= mission.appointment %></p>
@@ -82,7 +82,7 @@
   <% if etablissement_signed_in? && mission.benevole_id == @benevole.id %>
    <div class="profile-card mission-card">
        <h4><%= mission.title %></h4>
-       <p class="comment-links">Mission proposée par <%= link_to @benevole.firstname,  benevole_path(@benevole) %> pour <%#= link_to mission.etablissement.id, etablissement_path(mission.etablissement_id) %></p>
+       <p class="comment-links">Mission proposée par <%= link_to @benevole.firstname,  benevole_path(@benevole) %> pour <%= link_to mission_etablissement.id, etablissement_path(mission.etablissement_id) %></p>
        <p><%= mission.body %></p>
        <p><%= mission.place %></p>
        <p><%= mission.appointment %></p>
