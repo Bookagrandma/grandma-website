@@ -90,8 +90,8 @@ class MissionsController < ApplicationController
     MissionMailer.destroy_mission_e(Mission.find(params[:id])).deliver_now
     @mission.destroy
     respond_to do |format|
-      format.html { redirect_to @etablissement, notice: 'La Proposition a bien été supprimée' }
-      format.json { head :no_content, location: @etablissement  }
+      format.html { redirect_to @etablissement || @benevole, notice: 'La Proposition a bien été supprimée' }
+      format.json { head :no_content, location: @etablissement || @benevole }
     end
   end
 
