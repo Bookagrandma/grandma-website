@@ -29,12 +29,12 @@
 
         <% if benevole_signed_in? && current_benevole.id == mission.benevole_id  %>
         <%= link_to 'Modifier', edit_mission_path(mission), :class => 'edit-links' %>
-        <%= link_to 'Supprimer', mission, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'cancel-links' %>
+        <%= link_to 'Supprimer', mission, method: :delete, data: { confirm: 'Certain ?' }, :class => 'cancel-links' %>
             </div><br> <% else %> <% end %>
         
         <% if etablissement_signed_in? && current_etablissement.id == mission.etablissement_id && mission.benevole_id == nil %>
         <%= link_to 'Modifier', edit_mission_path(mission), :class => 'edit-links' %>
-        <%= link_to 'Supprimer', mission, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'cancel-links' %>
+        <%= link_to 'Supprimer', mission, method: :delete, data: { confirm: 'Certain ?' }, :class => 'cancel-links' %>
           </div><br> <% else %> <% end %>
 
           <% if etablissement_signed_in? && current_etablissement.id == mission.etablissement_id && mission.benevole_id != nil %>

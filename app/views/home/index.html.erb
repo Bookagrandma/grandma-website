@@ -9,9 +9,9 @@
 
 
   <div class="intro">
-    <p>Bienvenue sur le site qui connecte les bénévoles souhaitant donner le meilleur d'eux même aux établissements de santé dans le besoin.</p>
     <% if benevole_signed_in? == false && etablissement_signed_in? == false %>
     <div class="home-signup">
+      <p><i> Laisse pas traîner mamie, si tu veux pas qu'elle glisse </i></p>
       <h4>S'enregister en tant que :</h4>
       <%= link_to "Bénevole", new_benevole_registration_path, :class => 'bnvl-sup' %>
       <%= link_to "Etablissement", new_etablissement_registration_path, :class => 'etbl-sup' %>
@@ -21,6 +21,7 @@
 
     <% if benevole_signed_in? %>
     <div class="home-signup">
+      <p><i> Salut <%= current_benevole.firstname %>, merci de donner de ton temps </i></p>
       <h4>Trouver un établissement autour de vous</h4>
       <%= link_to "Chercher", etablissements_path, :class => 'etbl-sup' %>
     </div>
@@ -29,7 +30,8 @@
 
    <% if etablissement_signed_in? %>
     <div class="home-signup">
-      <h4>Voir les propositions de missions reçues</h4>
+      <p><i> Bonjour  <%= current_etablissement.name %>, passez le bonjour à vos pensionnaires de notre part </i></p>
+      <h4>Voir les propositions reçues</h4>
       <%= link_to "Voir", missions_path, :class => 'etbl-sup' %>
     </div>
     <%else%>
