@@ -11,4 +11,4 @@ Détail : <%= @mission.body %>
 Lieu : <%= @mission.place %>
 Temps disponible : <%= @mission.appointment %>
 
-Pour voir cette proposition, rdv sur cette page : <%= link_to "BookaGrandma" mission_url(@etablissement.id) %>
+Pour voir cette proposition, rdv sur cette page : <%= link_to "BookaGrandma", @etablissement.id %>
