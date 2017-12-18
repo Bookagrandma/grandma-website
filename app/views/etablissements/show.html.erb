@@ -51,11 +51,11 @@
   
 
   <% if etablissement_signed_in? && @etablissement.id == current_etablissement.id%> 
-  <%= link_to 'Je propose une nouvelle mission', new_etablissement_mission_path(@etablissement), :class => 'edit-info' %> </h3>
+  <%= link_to 'Je propose une nouvelle proposition', new_etablissement_mission_path(@etablissement), :class => 'edit-info' %> </h3>
     <% end %> </h3>
 
   <% if benevole_signed_in? %> 
-  <%= link_to 'Je propose une nouvelle mission', new_etablissement_mission_path(@etablissement), :class => 'edit-info' %> </h3>
+  <%= link_to 'Je propose une nouvelle proposition', new_etablissement_mission_path(@etablissement), :class => 'edit-info' %> </h3>
     <% end %> </h3>
 
 
