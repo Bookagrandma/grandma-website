@@ -1,12 +1,11 @@
-Bonjour,
+Bonjour <%= @etablissement.name %>,
 
 
-<%= @etablissement.name %> fait partie des établissements inscrits sur Bookagrandma, la plateforme gratuite qui permet de vous connecter avec des bénévoles qui souhaitent s'impliquer auprès de vos pensionnaires.
+<%= @etablissement.name %> fait partie des établissements inscrits sur Bookagrandma.
 
 A ce titre, vous pouvez créer de nombreuses propositions sur votre page afin d'inviter des bénévoles à vous rejoindre.
 
-La proposition <%= @mission.title %> a été supprimée.</p>
-
+La proposition <%= @mission.title %> a été supprimée.
 
 Voici ce qu'elle proposait :
 
@@ -16,4 +15,4 @@ Lieu : <%= @mission.place %>
 Temps disponible : <%= @mission.appointment %>
 
 
-N'hésitez pas à créer de nouvelles propositions la place.
+N'hésitez pas à créer de nouvelles propositions à la place.

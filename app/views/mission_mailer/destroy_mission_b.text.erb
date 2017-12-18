@@ -1,7 +1,7 @@
 Bonjour,
 
 
-Votre proposition (#{mission.title}) sur la page de l'établissement : #{@etablissement.name} a bien été supprimé.
+Votre proposition <%= @mission.title %> sur la page de l'établissement <%= @etablissement.name %> a bien été supprimé.
 
 Pour rappel, la voici :
 
@@ -9,3 +9,5 @@ Proposition : <%= @mission.title %>
 Détail : <%= @mission.body %>
 Lieu : <%= @mission.place %>
 Temps disponible : <%= @mission.appointment %>
+
+ N'hésitez pas à créer de nouvelles propositions à la place.

@@ -31,8 +31,9 @@
    <% if etablissement_signed_in? %>
     <div class="home-signup">
       <p><i> Bonjour  <%= current_etablissement.name %>, passez le bonjour à vos pensionnaires de notre part </i></p>
-      <h4>Voir les propositions reçues</h4>
-      <%= link_to "Voir", missions_path, :class => 'etbl-sup' %>
+   <br>
+    <%= link_to "Voir", missions_path, :class => 'etbl-sup' %>
+         <h4> les propositions reçues</h4>
     </div>
     <%else%>
     <% end %>
