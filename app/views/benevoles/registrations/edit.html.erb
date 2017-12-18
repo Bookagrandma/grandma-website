@@ -95,6 +95,6 @@
   <p>Vous n'êtes plus interessé par le service ? <br>
   <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Certain ?" }, method: :delete, :class => "cancel-links" %></p>
 
-  <%= link_to "Retour", :back, :class => "nav-links" %><%= link_to "Home", root_path, :class => 'edit-info', :style => 'margin-left: 20px;' %>
+  <%= link_to "Retour", @benevole_path, :class => "nav-links" %><%= link_to "Home", root_path, :class => 'edit-info', :style => 'margin-left: 20px;' %>
 
 </div>
