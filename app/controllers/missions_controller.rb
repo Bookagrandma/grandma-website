@@ -59,7 +59,7 @@ class MissionsController < ApplicationController
         MissionMailer.new_mission_b(Mission.last).deliver_now
         MissionMailer.new_mission_e(Mission.last).deliver_now
         format.html { redirect_to @etablissement, notice: 'La Proposition a bien été crée.' }
-        format.json { render :show, status: :created, location: @mission }
+        format.json { render :show, status: :created, location: @etablissement }
       else
         format.html { render :new }
         format.json { render json: @mission.errors, status: :unprocessable_entity }
@@ -91,7 +91,7 @@ class MissionsController < ApplicationController
     @mission.destroy
     respond_to do |format|
       format.html { redirect_to @etablissement, notice: 'La Proposition a bien été supprimée' }
-      format.json { head :no_content }
+      format.json { head :no_content, location: @etablissement  }
     end
   end
 
