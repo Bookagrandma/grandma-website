@@ -48,14 +48,25 @@
 
 
   <h3>Les propositions de <span><%= @etablissement.name %> </span> 
+  
+
   <% if etablissement_signed_in? && @etablissement.id == current_etablissement.id%> 
   <%= link_to 'Je propose une nouvelle mission', new_etablissement_mission_path(@etablissement), :class => 'edit-info' %> </h3>
     <% end %> </h3>
+
+  <% if benevole_signed_in? %> 
+  <%= link_to 'Je propose une nouvelle mission', new_etablissement_mission_path(@etablissement), :class => 'edit-info' %> </h3>
+    <% end %> </h3>
+
+
+
       <% @missions.each do |mission| %>
       <div class="profile-card mission-card">
       <h4><%= mission.title %></h4>
       <p><%= mission.body %></p>
       <p><%= mission.appointment %></p>
+
+
 <!--affichage si benevole sign in -->
     <% if benevole_signed_in? && current_benevole.id == mission.benevole_id %>
         <p class="comment-links">Mission proposée par <%= link_to 'moi-même',  benevole_path(mission.benevole_id) %> </p>
