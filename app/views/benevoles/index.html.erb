@@ -1,3 +1,7 @@
+<%= render partial: "layouts/navbar" %>
+
+<div class="page-container indexben" >
+<div id="search">
 <p id="notice"><%= notice %></p>
 
 
@@ -9,10 +13,10 @@
    <%= submit_tag "Chercher", :name => nil %>
  <% end %>
 
+<div class = "table"></div>
 <br>
-
 <table>
-  <thead>
+  <thead class="table-title">
     <tr>
       <th>Prénom</th>
       <th>Nom</th>
@@ -26,17 +30,17 @@
   <tbody >
 
     <% @benevoles.each do |benevole| %>
-      <tr>
-        <td><%= benevole.firstname %></td>
-        <td><%= benevole.lastname %></td>
-        <td><%= benevole.city %></td>
-        <td><%= benevole.zip %></td>
-        <td><%= benevole.motivation %></td>
-        <td><%= link_to 'En savoir plus sur le bénévole', benevole_path(benevole) %></td>
-        <td colspan="6"></td>
+      <tr class="infos">
+        <div><td><strong><%= benevole.firstname %>   <%= benevole.lastname %></strong>   <em><%= benevole.city %>   <%= benevole.zip %></em>   <%= benevole.motivation %></td>
+        </div>
+        <div><td class="link_ben"><%= link_to 'En savoir plus sur le bénévole', benevole_path(benevole) %></td>
+        <td colspan="6"></td></div>
       </tr>
     <% end %> 
   </tbody>
 </table>
 
 <p><%= link_to("Revenir à l'Accueil",root_path)%></p>
+
+
+
