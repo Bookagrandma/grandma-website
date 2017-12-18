@@ -568,9 +568,32 @@ nav {
 .indexet {
 
 
+    input[type="text"] { 
+
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid black;
+    text-align: center;
+    width: 500px;
+
+    }
+
+    input[type="submit"] {
+
+    padding: 10px;
+    border-radius: 3px;
+    background-color: $blue;
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    font-weight: 700;
+    color: $white;
+    border: none;
+
+    }
+
+
     h1 {
       font: 1.5 'Nunito', 'Helvetica', sans-serif;
-      margin: 0;
+      margin-bottom: 20px;
       padding: 0;
     }
 
@@ -645,10 +668,31 @@ nav {
 
   .indexben {
 
+    input[type="text"] { 
+
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid black;
+    text-align: center;
+    width: 500px;
+
+    }
+
+    input[type="submit"] {
+
+    padding: 10px;
+    border-radius: 3px;
+    background-color: $blue;
+    font-family: 'Nunito', 'Helvetica', sans-serif;
+    font-weight: 700;
+    color: $white;
+    border: none;
+
+    }
 
     h1 {
       font: 1.5 'Nunito', 'Helvetica', sans-serif;
-      margin: 0;
+      margin-bottom: 20px;
       padding: 0;
     }
 
