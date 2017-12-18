@@ -28,16 +28,11 @@
   </thead>
   <tbody>
     <% @etablissements.each do |etablissement| %>
-      <tr>
-        <td><%= etablissement.name %></td>
-        <td><%= etablissement.address %></td>
-        <td><%= etablissement.zip %></td>
-        <td><%= etablissement.city %></td>
-        <td><%= etablissement.dept %></td>
-        <td class="link_et"><%= link_to 'Voir l\'établissement', etablissement_path(etablissement) %></td>
-      </tr>
+      <tr class="infos">
+        <td><strong><%= etablissement.name %></strong>    <em><%= etablissement.address %>    <%= etablissement.zip %>    <%= etablissement.city %>    <%= etablissement.dept %></em></td>
+        <div><td class="link_et"><%= link_to 'Voir l\'établissement', etablissement_path(etablissement) %></td></div>
+      </tr>   
     <% end %>
-
   </tbody >
 
 </table>
