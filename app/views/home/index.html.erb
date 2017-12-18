@@ -9,9 +9,10 @@
 
 
   <div class="intro">
+    
     <% if benevole_signed_in? == false && etablissement_signed_in? == false %>
     <div class="home-signup">
-      <p><i> Laisse pas traîner mamie, si tu veux pas qu'elle glisse </i></p>
+      <p> Laisse pas traîner mamie, si tu veux pas qu'elle glisse </p>
       <h4>S'enregister en tant que :</h4>
       <%= link_to "Bénevole", new_benevole_registration_path, :class => 'bnvl-sup' %>
       <%= link_to "Etablissement", new_etablissement_registration_path, :class => 'etbl-sup' %>
@@ -21,8 +22,7 @@
 
     <% if benevole_signed_in? %>
     <div class="home-signup">
-      <p><i> Salut <%= current_benevole.firstname %>, merci de donner de ton temps </i></p>
-     
+      <p> Salut <%= current_benevole.firstname %>, merci de donner de ton temps</p>
       <%= link_to "Chercher", etablissements_path, :class => 'etbl-sup' %> 
       <h4>un établissement autour de vous</h4>
     </div>
@@ -31,7 +31,7 @@
 
    <% if etablissement_signed_in? %>
     <div class="home-signup">
-      <p><i> Bonjour  <%= current_etablissement.name %>, passez le bonjour à vos pensionnaires de notre part </i></p>
+      <p> Bonjour  <%= current_etablissement.name %>, passez le bonjour à vos pensionnaires de notre part </p>
    <br>
     <%= link_to "Voir", missions_path, :class => 'etbl-sup' %>
          <h4> les propositions reçues</h4>
@@ -39,6 +39,7 @@
     <%else%>
     <% end %>
 
+<p class="slogan"><i>Connecte les bénévoles souhaitant donner du temps aux personnes agées</i></p>
   </div>
 
   <div class="etablissements-map">

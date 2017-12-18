@@ -217,7 +217,11 @@ nav {
 
 // HOMEPAGE
 .intro {
-  padding: 250px 50px 150px;
+  .slogan {
+      margin-top: 100px;
+      font-size: 2em;
+      }
+  padding: 250px 50px 20px;
   margin-bottom: 50px;
   background-image: url("https://preview.ibb.co/h7b2em/Plan_de_travail_1_3x.png");
   background-position: center;
