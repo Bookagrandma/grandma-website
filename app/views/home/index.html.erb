@@ -22,8 +22,9 @@
     <% if benevole_signed_in? %>
     <div class="home-signup">
       <p><i> Salut <%= current_benevole.firstname %>, merci de donner de ton temps </i></p>
-      <h4>Trouver un établissement autour de vous</h4>
-      <%= link_to "Chercher", etablissements_path, :class => 'etbl-sup' %>
+     
+      <%= link_to "Chercher", etablissements_path, :class => 'etbl-sup' %> 
+      <h4>un établissement autour de vous</h4>
     </div>
     <%else%>
     <% end %>
